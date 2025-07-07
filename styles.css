@@ -7,8 +7,8 @@
     --danger-color: #dc2626;
     --dark-color: #1f2937;
     --light-color: #f8fafc;
-    --font-primary: 'Inter', sans-serif;
-    --font-heading: 'Playfair Display', serif;
+    --font-primary: 'Times New Roman', Times, serif;
+    --font-heading: 'Times New Roman', Times, serif;
     --transition: all 0.3s ease;
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -24,14 +24,14 @@
 }
 
 body {
-    font-family: var(--font-primary);
+    font-family: 'Times New Roman', Times, serif;
     line-height: 1.6;
     color: #374151;
     scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+    font-family: 'Times New Roman', Times, serif;
     font-weight: 600;
     line-height: 1.2;
 }
@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-brand {
-    font-family: var(--font-heading);
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;
     color: white !important;
 }
@@ -126,7 +126,12 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    /* Professional journalism/newsroom background image */
+    background: linear-gradient(rgba(37, 99, 235, 0.7), rgba(30, 64, 175, 0.8)), 
+                url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+    
+    /* Fallback gradient for loading */
+    background-color: var(--primary-color);
     z-index: -2;
 }
 
@@ -137,16 +142,31 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="1"/></g></svg>');
+    /* Subtle overlay pattern for texture */
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="30" cy="30" r="1"/></g></svg>');
     z-index: -1;
 }
 
-.hero-content h1 {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Alternative hero background options for different pages */
+.articles-hero {
+    background: linear-gradient(rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.9)), 
+                url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+    color: white;
+    padding: 6rem 0 4rem;
 }
 
-.scroll-indicator {
-    animation: bounce 2s infinite;
+.magazines-hero {
+    background: linear-gradient(rgba(5, 150, 105, 0.8), rgba(4, 120, 87, 0.9)), 
+                url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+    color: white;
+    padding: 6rem 0 4rem;
+}
+
+.about-hero {
+    background: linear-gradient(rgba(31, 41, 55, 0.8), rgba(55, 65, 81, 0.9)), 
+                url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+    color: white;
+    padding: 6rem 0 4rem;
 }
 
 /* Cards */
@@ -226,6 +246,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 8px;
     transition: var(--transition);
     font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .form-control:focus {
@@ -235,6 +256,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Footer */
+footer {
+    font-family: 'Times New Roman', Times, serif;
+}
+
 footer a {
     transition: var(--transition);
 }
@@ -427,72 +452,6 @@ footer a:hover {
     border-top: 1px solid #e5e7eb;
 }
 
-/* Footer Fixes for Better Visibility */
-footer.bg-dark {
-    background-color: #1a1a1a !important;
-}
-
-footer h5,
-footer h6 {
-    color: #ffffff !important;
-}
-
-footer p {
-    color: #e5e7eb !important;
-}
-
-footer a {
-    color: #d1d5db !important;
-    transition: var(--transition);
-}
-
-footer a:hover {
-    color: var(--primary-color) !important;
-    transform: translateY(-1px);
-}
-
-footer .text-light {
-    color: #f3f4f6 !important;
-}
-
-footer .text-muted {
-    color: #9ca3af !important;
-}
-
-footer .opacity-75 {
-    opacity: 0.8 !important;
-}
-
-footer hr {
-    border-color: #374151 !important;
-}
-
-/* Social Links Specific Styling */
-footer .social-links a,
-footer .d-flex a {
-    color: #d1d5db !important;
-    text-decoration: none !important;
-}
-
-footer .social-links a:hover,
-footer .d-flex a:hover {
-    color: var(--primary-color) !important;
-}
-
-/* Copyright and bottom links */
-footer .footer-bottom p,
-footer .row:last-child p {
-    color: #9ca3af !important;
-}
-
-footer .row:last-child a {
-    color: #9ca3af !important;
-}
-
-footer .row:last-child a:hover {
-    color: #d1d5db !important;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-section {
@@ -547,6 +506,7 @@ footer .row:last-child a:hover {
         padding: 2rem 0;
     }
 }
+
 .cta-btn {
     background: transparent;
     color: white;
@@ -557,7 +517,6 @@ footer .row:last-child a:hover {
     border-radius: 4px;
     position: relative;
     overflow: hidden;
-    padding: 0.75rem 1.5rem;
 }
 
 .cta-btn::before {
@@ -603,7 +562,7 @@ footer .row:last-child a:hover {
 }
 
 .staff-section .section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 3rem;
     color: white;
     margin-bottom: 3rem;
@@ -635,7 +594,7 @@ footer .row:last-child a:hover {
 }
 
 .member-info-large .member-name {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: white;
@@ -682,7 +641,7 @@ footer .row:last-child a:hover {
 }
 
 .staff-member .member-name {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.2rem;
     margin-bottom: 0.25rem;
     color: white;
@@ -716,7 +675,7 @@ footer .row:last-child a:hover {
 }
 
 .footer-section h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;
     margin-bottom: 2rem;
     color: #fff;
@@ -731,7 +690,7 @@ footer .row:last-child a:hover {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     opacity: 0.9;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Times New Roman', Times, serif;
     line-height: 1.6;
 }
 
@@ -748,7 +707,7 @@ footer .row:last-child a:hover {
   color: #ccc;
   text-decoration: none;
   font-size: 1rem;
-  font-family: 'Crimson Text', serif;
+  font-family: 'Times New Roman', Times, serif;
   display: inline-block;
   border-bottom: 2px solid #3498db;
   padding-bottom: 4px;
@@ -789,7 +748,7 @@ footer .row:last-child a:hover {
 
 .footer-bottom p {
   margin: 0;
-  font-family: 'Crimson Text', serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* Modal Styles */
@@ -1072,7 +1031,7 @@ footer .row:last-child a:hover {
     color: #666;
     line-height: 1.6;
     margin-bottom: 1rem;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .article-item .article-meta {
@@ -1149,7 +1108,7 @@ footer .row:last-child a:hover {
 }
 
 .newsletter-content h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 2.5rem;
     margin-bottom: 1rem;
     animation: slideInUp 0.8s ease-out 0.2s both;
@@ -1177,7 +1136,7 @@ footer .row:last-child a:hover {
     border: none;
     border-radius: 25px;
     font-size: 1rem;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .newsletter-section .newsletter-form button {
@@ -1211,6 +1170,7 @@ footer .row:last-child a:hover {
     font-size: 1.1rem;
     margin-bottom: 3rem;
     opacity: 0.9;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .magazines-grid {
@@ -1322,7 +1282,7 @@ footer .row:last-child a:hover {
 }
 
 .magazine-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;
     margin: 1rem 0;
     color: #2c3e50;
@@ -1332,7 +1292,7 @@ footer .row:last-child a:hover {
     color: #666;
     line-height: 1.7;
     margin-bottom: 1rem;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .magazine-meta {
@@ -1443,7 +1403,8 @@ footer .row:last-child a:hover {
     font-size: 1.1rem;
     margin-bottom: 3rem;
     opacity: 0.9;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
 }
 
 .submission-guidelines {
@@ -1460,7 +1421,7 @@ footer .row:last-child a:hover {
 }
 
 .guideline-card h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Times New Roman', Times, serif;
     margin-bottom: 1rem;
 }
 
@@ -1534,7 +1495,7 @@ footer .row:last-child a:hover {
 }
 
 .footer-section h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;
     margin-bottom: 2rem;
     color: #fff;
@@ -1549,7 +1510,7 @@ footer .row:last-child a:hover {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     opacity: 0.9;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Times New Roman', Times, serif;
     line-height: 1.6;
 }
 
@@ -1566,7 +1527,7 @@ footer .row:last-child a:hover {
   color: #ccc;
   text-decoration: none;
   font-size: 1rem;
-  font-family: 'Crimson Text', serif;
+  font-family: 'Times New Roman', Times, serif;
   display: inline-block;
   border-bottom: 2px solid #3498db;
   padding-bottom: 4px;
@@ -1607,7 +1568,7 @@ footer .row:last-child a:hover {
 
 .footer-bottom p {
   margin: 0;
-  font-family: 'Crimson Text', serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* Modal Styles */
@@ -1884,3 +1845,15 @@ footer .row:last-child a:hover {
         grid-template-columns: 1fr;
     }
 }
+    .staff-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .magazine-card.featured {
+        grid-template-columns: 1fr;
+    }

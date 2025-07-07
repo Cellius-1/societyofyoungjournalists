@@ -17,10 +17,13 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="articles-page">
+<body class="articles-page" x-data="articlesApp()">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
         <div class="container">
@@ -108,28 +111,33 @@
             <div class="row">
                 <div class="col-12" data-aos="fade-up">
                     <h3 class="text-center mb-4">Browse by Category</h3>
-                    <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <button class="btn btn-outline-primary category-btn active" data-category="all">
-                            <i class="fas fa-list me-2"></i>All Articles
+                    <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+                        <template x-for="category in categories" :key="category.id">
+                            <button 
+                                class="btn btn-outline-primary category-btn"
+                                :class="{ 'active': activeCategory === category.id }"
+                                @click="setActiveCategory(category.id)"
+                                x-html="category.name">
+                            </button>
+                        </template>
+                    </div>
+                    <div class="text-center">
+                        <button 
+                            class="btn btn-sm btn-outline-secondary"
+                            @click="clearFilters()"
+                            x-show="activeCategory !== 'all'">
+                            <i class="fas fa-refresh me-2"></i>Clear Filters
                         </button>
-                        <button class="btn btn-outline-primary category-btn" data-category="politics">
-                            <i class="fas fa-balance-scale me-2"></i>Politics
-                        </button>
-                        <button class="btn btn-outline-primary category-btn" data-category="technology">
-                            <i class="fas fa-microchip me-2"></i>Technology
-                        </button>
-                        <button class="btn btn-outline-primary category-btn" data-category="culture">
-                            <i class="fas fa-palette me-2"></i>Culture
-                        </button>
-                        <button class="btn btn-outline-primary category-btn" data-category="business">
-                            <i class="fas fa-chart-line me-2"></i>Business
-                        </button>
-                        <button class="btn btn-outline-primary category-btn" data-category="sports">
-                            <i class="fas fa-futbol me-2"></i>Sports
-                        </button>
-                        <button class="btn btn-outline-primary category-btn" data-category="environment">
-                            <i class="fas fa-leaf me-2"></i>Environment
-                        </button>
+                    </div>
+                    
+                    <!-- Results indicator -->
+                    <div class="text-center mt-3" x-show="filteredArticles.length > 0">
+                        <p class="text-muted mb-0">
+                            <i class="fas fa-filter me-2"></i>
+                            Showing <span x-text="filteredArticles.length"></span> 
+                            article<span x-show="filteredArticles.length !== 1">s</span> 
+                            in <strong x-text="getCategoryName(activeCategory)"></strong>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -140,154 +148,46 @@
     <section class="py-5">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card border-0 shadow h-100 article-item" data-category="politics">
-                        <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Politics">
-                        <div class="card-body">
-                            <span class="badge bg-primary mb-2">Politics</span>
-                            <h5 class="card-title">New Youth Voting Initiative Launched</h5>
-                            <p class="card-text text-muted">A comprehensive program aims to increase political engagement among young voters through education and accessibility improvements.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">By Michael Rodriguez</small>
-                                <small class="text-muted">Dec 14, 2024</small>
+                <template x-for="article in filteredArticles" :key="article.id">
+                    <div class="col-lg-4 col-md-6" 
+                         data-aos="fade-up" 
+                         x-show="isArticleVisible(article)"
+                         x-transition:enter="transition ease-out duration-300"
+                         x-transition:enter-start="opacity-0 transform scale-95"
+                         x-transition:enter-end="opacity-100 transform scale-100">
+                        <div class="card border-0 shadow h-100 article-item" 
+                             @click="openArticle(article)">
+                            <img :src="article.image" 
+                                 class="card-img-top" 
+                                 style="height: 200px; object-fit: cover;" 
+                                 :alt="article.category">
+                            <div class="card-body">
+                                <span class="badge mb-2" 
+                                      :class="article.badgeClass" 
+                                      x-text="article.category"></span>
+                                <h5 class="card-title" x-text="article.title"></h5>
+                                <p class="card-text text-muted" x-text="article.excerpt"></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted" x-text="'By ' + article.author"></small>
+                                    <small class="text-muted" x-text="article.date"></small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card border-0 shadow h-100 article-item" data-category="technology">
-                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Technology">
-                        <div class="card-body">
-                            <span class="badge bg-success mb-2">Technology</span>
-                            <h5 class="card-title">AI in Education: Transforming Learning</h5>
-                            <p class="card-text text-muted">Artificial intelligence is revolutionizing how students learn and teachers teach, creating personalized educational experiences.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">By Emma Thompson</small>
-                                <small class="text-muted">Dec 13, 2024</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card border-0 shadow h-100 article-item" data-category="culture">
-                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Culture">
-                        <div class="card-body">
-                            <span class="badge bg-warning mb-2">Culture</span>
-                            <h5 class="card-title">Student Art Exhibition Showcases Diversity</h5>
-                            <p class="card-text text-muted">Local artists celebrate cultural heritage through a vibrant collection of paintings, sculptures, and digital art.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">By David Kim</small>
-                                <small class="text-muted">Dec 12, 2024</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card border-0 shadow h-100 article-item" data-category="business">
-                        <img src="https://images.unsplash.com/photo-1518709268804-4b8f8e4f8a4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Business">
-                        <div class="card-body">
-                            <span class="badge bg-success mb-2">Business</span>
-                            <h5 class="card-title">Youth Entrepreneurship on the Rise</h5>
-                            <p class="card-text text-muted">Young entrepreneurs are launching innovative startups at record rates, driven by digital technology and social impact goals.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">By Lisa Park</small>
-                                <small class="text-muted">Dec 11, 2024</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="card border-0 shadow h-100 article-item" data-category="sports">
-                        <img src="https://images.unsplash.com/photo-1501594907350-7a5f8e4f8a4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Sports">
-                        <div class="card-body">
-                            <span class="badge bg-danger mb-2">Sports</span>
-                            <h5 class="card-title">High School Championship Finals</h5>
-                            <p class="card-text text-muted">Teams prepare for the ultimate showdown in this year's most anticipated high school sports championship.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">By James Wilson</small>
-                                <small class="text-muted">Dec 10, 2024</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="card border-0 shadow h-100 article-item" data-category="environment">
-                        <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Environment">
-                        <div class="card-body">
-                            <span class="badge bg-success mb-2">Environment</span>
-                            <h5 class="card-title">Campus Sustainability Initiatives</h5>
-                            <p class="card-text text-muted">Universities nationwide are implementing green technologies and sustainable practices to reduce their environmental impact.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">By Rachel Green</small>
-                                <small class="text-muted">Dec 9, 2024</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
-                    <div class="card border-0 shadow h-100 article-item" data-category="technology">
-                        <img src="https://images.unsplash.com/photo-1581091870620-4b8f8e4f8a4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Tech Innovation">
-                        <div class="card-body">
-                            <span class="badge bg-primary mb-2">Technology</span>
-                            <h5 class="card-title">Student Developers Create Mental Health App</h5>
-                            <p class="card-text text-muted">A team of university students has developed an innovative app to support peer mental health and wellness.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">By Alex Chen</small>
-                                <small class="text-muted">Dec 8, 2024</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="800">
-                    <div class="card border-0 shadow h-100 article-item" data-category="politics">
-                        <img src="https://images.unsplash.com/photo-1518709268804-4b8f8e4f8a4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Student Government">
-                        <div class="card-body">
-                            <span class="badge bg-primary mb-2">Politics</span>
-                            <h5 class="card-title">Student Government Elections Approach</h5>
-                            <p class="card-text text-muted">Candidates present their platforms for improving campus life and student representation in university decisions.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">By Jordan Lee</small>
-                                <small class="text-muted">Dec 7, 2024</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="900">
-                    <div class="card border-0 shadow h-100 article-item" data-category="culture">
-                        <img src="https://images.unsplash.com/photo-1581091870620-4b8f8e4f8a4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Music Festival">
-                        <div class="card-body">
-                            <span class="badge bg-warning mb-2">Culture</span>
-                            <h5 class="card-title">Annual Music Festival Celebrates Diversity</h5>
-                            <p class="card-text text-muted">Students from various cultural backgrounds showcase their musical talents in this year's diversity celebration.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">By Maria Santos</small>
-                                <small class="text-muted">Dec 6, 2024</small>
-                            </div>
-                        </div>
-                    </div>
+                </template>
+            </div>
+            
+            <!-- No results message -->
+            <div class="text-center mt-5" x-show="filteredArticles.length === 0">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    No articles found for the selected category.
                 </div>
             </div>
             
             <!-- Load More Button -->
-            <div class="text-center mt-5" data-aos="fade-up">
-                <button class="btn btn-primary btn-lg load-more-btn">
+            <div class="text-center mt-5" data-aos="fade-up" x-show="filteredArticles.length > 0">
+                <button class="btn btn-primary btn-lg" @click="loadMoreArticles()">
                     <i class="fas fa-plus me-2"></i>Load More Articles
                 </button>
             </div>
@@ -365,6 +265,34 @@
         </div>
     </footer>
 
+    <!-- Article Modal -->
+    <div class="modal fade" 
+         id="articleModal" 
+         x-show="selectedArticle" 
+         x-transition.opacity>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" x-show="selectedArticle">
+                <div class="modal-header">
+                    <h5 class="modal-title" x-text="selectedArticle?.title"></h5>
+                    <button type="button" class="btn-close" @click="closeArticle()"></button>
+                </div>
+                <div class="modal-body">
+                    <span class="badge bg-primary mb-3" x-text="selectedArticle?.category"></span>
+                    <p class="text-muted mb-3" x-text="'By ' + selectedArticle?.author + ' • ' + selectedArticle?.date"></p>
+                    <p x-text="selectedArticle?.excerpt"></p>
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Full article functionality will be implemented with a content management system.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @click="closeArticle()">Close</button>
+                    <button type="button" class="btn btn-primary">Read Full Article</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
@@ -373,6 +301,217 @@
     
     <!-- Custom JS -->
     <script src="script.js"></script>
-    <script src="articles.js"></script>
+    
+    <!-- Alpine.js Articles App -->
+    <script>
+        function articlesApp() {
+            return {
+                activeCategory: 'all',
+                selectedArticle: null,
+                
+                categories: [
+                    { id: 'all', name: '<i class="fas fa-list me-2"></i>All Articles', displayName: 'All Categories' },
+                    { id: 'politics', name: '<i class="fas fa-balance-scale me-2"></i>Politics', displayName: 'Politics' },
+                    { id: 'technology', name: '<i class="fas fa-microchip me-2"></i>Technology', displayName: 'Technology' },
+                    { id: 'culture', name: '<i class="fas fa-palette me-2"></i>Culture', displayName: 'Culture' },
+                    { id: 'business', name: '<i class="fas fa-chart-line me-2"></i>Business', displayName: 'Business' },
+                    { id: 'sports', name: '<i class="fas fa-futbol me-2"></i>Sports', displayName: 'Sports' },
+                    { id: 'environment', name: '<i class="fas fa-leaf me-2"></i>Environment', displayName: 'Environment' }
+                ],
+                
+                articles: [
+                    {
+                        id: 1,
+                        title: 'New Youth Voting Initiative Launched',
+                        category: 'Politics',
+                        categoryId: 'politics',
+                        excerpt: 'A comprehensive program aims to increase political engagement among young voters through education and accessibility improvements.',
+                        author: 'Michael Rodriguez',
+                        date: 'Dec 14, 2024',
+                        image: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                        badgeClass: 'bg-primary'
+                    },
+                    {
+                        id: 2,
+                        title: 'AI in Education: Transforming Learning',
+                        category: 'Technology',
+                        categoryId: 'technology',
+                        excerpt: 'Artificial intelligence is revolutionizing how students learn and teachers teach, creating personalized educational experiences.',
+                        author: 'Emma Thompson',
+                        date: 'Dec 13, 2024',
+                        image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                        badgeClass: 'bg-success'
+                    },
+                    {
+                        id: 3,
+                        title: 'Student Art Exhibition Showcases Diversity',
+                        category: 'Culture',
+                        categoryId: 'culture',
+                        excerpt: 'Local artists celebrate cultural heritage through a vibrant collection of paintings, sculptures, and digital art.',
+                        author: 'David Kim',
+                        date: 'Dec 12, 2024',
+                        image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                        badgeClass: 'bg-warning'
+                    },
+                    {
+                        id: 4,
+                        title: 'Youth Entrepreneurship on the Rise',
+                        category: 'Business',
+                        categoryId: 'business',
+                        excerpt: 'Young entrepreneurs are launching innovative startups at record rates, driven by digital technology and social impact goals.',
+                        author: 'Lisa Park',
+                        date: 'Dec 11, 2024',
+                        image: 'https://images.unsplash.com/photo-1518709268804-4b8f8e4f8a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                        badgeClass: 'bg-success'
+                    },
+                    {
+                        id: 5,
+                        title: 'High School Championship Finals',
+                        category: 'Sports',
+                        categoryId: 'sports',
+                        excerpt: 'Teams prepare for the ultimate showdown in this year\'s most anticipated high school sports championship.',
+                        author: 'James Wilson',
+                        date: 'Dec 10, 2024',
+                        image: 'https://images.unsplash.com/photo-1501594907350-7a5f8e4f8a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                        badgeClass: 'bg-danger'
+                    },
+                    {
+                        id: 6,
+                        title: 'Campus Sustainability Initiatives',
+                        category: 'Environment',
+                        categoryId: 'environment',
+                        excerpt: 'Universities nationwide are implementing green technologies and sustainable practices to reduce their environmental impact.',
+                        author: 'Rachel Green',
+                        date: 'Dec 9, 2024',
+                        image: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                        badgeClass: 'bg-success'
+                    },
+                    {
+                        id: 7,
+                        title: 'Student Developers Create Mental Health App',
+                        category: 'Technology',
+                        categoryId: 'technology',
+                        excerpt: 'A team of university students has developed an innovative app to support peer mental health and wellness.',
+                        author: 'Alex Chen',
+                        date: 'Dec 8, 2024',
+                        image: 'https://images.unsplash.com/photo-1581091870620-4b8f8e4f8a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                        badgeClass: 'bg-primary'
+                    },
+                    {
+                        id: 8,
+                        title: 'Student Government Elections Approach',
+                        category: 'Politics',
+                        categoryId: 'politics',
+                        excerpt: 'Candidates present their platforms for improving campus life and student representation in university decisions.',
+                        author: 'Jordan Lee',
+                        date: 'Dec 7, 2024',
+                        image: 'https://images.unsplash.com/photo-1518709268804-4b8f8e4f8a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                        badgeClass: 'bg-primary'
+                    },
+                    {
+                        id: 9,
+                        title: 'Annual Music Festival Celebrates Diversity',
+                        category: 'Culture',
+                        categoryId: 'culture',
+                        excerpt: 'Students from various cultural backgrounds showcase their musical talents in this year\'s diversity celebration.',
+                        author: 'Maria Santos',
+                        date: 'Dec 6, 2024',
+                        image: 'https://images.unsplash.com/photo-1581091870620-4b8f8e4f8a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                        badgeClass: 'bg-warning'
+                    }
+                ],
+                
+                get filteredArticles() {
+                    if (this.activeCategory === 'all') {
+                        return this.articles;
+                    }
+                    return this.articles.filter(article => article.categoryId === this.activeCategory);
+                },
+                
+                setActiveCategory(categoryId) {
+                    this.activeCategory = categoryId;
+                    console.log('Active category set to:', categoryId);
+                },
+                
+                clearFilters() {
+                    this.activeCategory = 'all';
+                    console.log('Filters cleared - active category reset to: all');
+                },
+                
+                getCategoryName(categoryId) {
+                    const category = this.categories.find(cat => cat.id === categoryId);
+                    return category ? category.displayName : 'All Categories';
+                },
+                
+                isArticleVisible(article) {
+                    return this.activeCategory === 'all' || article.categoryId === this.activeCategory;
+                },
+                
+                openArticle(article) {
+                    this.selectedArticle = article;
+                    // Show modal using Bootstrap
+                    const modal = new bootstrap.Modal(document.getElementById('articleModal'));
+                    modal.show();
+                },
+                
+                closeArticle() {
+                    this.selectedArticle = null;
+                    // Hide modal using Bootstrap
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('articleModal'));
+                    if (modal) modal.hide();
+                },
+                
+                loadMoreArticles() {
+                    // Simulate loading more articles
+                    const newArticles = [
+                        {
+                            id: this.articles.length + 1,
+                            title: 'Innovation in Student Journalism',
+                            category: 'Technology',
+                            categoryId: 'technology',
+                            excerpt: 'How digital tools are changing the landscape of student journalism and storytelling.',
+                            author: 'Sarah Tech',
+                            date: 'Dec 5, 2024',
+                            image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+                            badgeClass: 'bg-success'
+                        }
+                    ];
+                    
+                    this.articles.push(...newArticles);
+                    
+                    // Show success message
+                    this.showToast('More articles loaded successfully!');
+                },
+                
+                showToast(message) {
+                    // Create and show a toast notification
+                    const toastHtml = `
+                        <div class="toast position-fixed top-0 end-0 m-3" role="alert" style="z-index: 9999;">
+                            <div class="toast-header bg-success text-white">
+                                <i class="fas fa-check me-2"></i>
+                                <strong class="me-auto">Success</strong>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+                            </div>
+                            <div class="toast-body">
+                                ${message}
+                            </div>
+                        </div>
+                    `;
+                    
+                    const toastElement = document.createElement('div');
+                    toastElement.innerHTML = toastHtml;
+                    document.body.appendChild(toastElement.firstElementChild);
+                    
+                    const toast = new bootstrap.Toast(toastElement.firstElementChild);
+                    toast.show();
+                    
+                    // Remove after hiding
+                    toastElement.firstElementChild.addEventListener('hidden.bs.toast', () => {
+                        toastElement.remove();
+                    });
+                }
+            }
+        }
+    </script>
 </body>
 </html>
