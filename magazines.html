@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazines - SYJ Times</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="magazines-page">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">SYJ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="articles.html">Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="magazines.html">Magazines</a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary ms-lg-3">Subscribe</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="magazines-hero py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h1 class="display-4 fw-bold text-white mb-4">Partner Magazines</h1>
+                    <p class="lead text-white opacity-90">Explore our featured student-led magazines in an interactive flipbook format</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Magazines -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Featured Magazine -->
+                <div class="col-12 mb-4" data-aos="fade-up">
+                    <div class="card border-0 shadow-lg">
+                        <div class="row g-0">
+                            <div class="col-lg-4">
+                                <div class="position-relative magazine-cover">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" 
+                                         class="card-img h-100" style="object-fit: cover;" alt="Creative Minds Quarterly">
+                                    <div class="magazine-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                                        <button class="btn btn-light btn-lg mb-3 read-btn" onclick="openFlipbook('magazine1')">
+                                            <i class="fas fa-book-open me-2"></i>Read Magazine
+                                        </button>
+                                        <button class="btn btn-outline-light preview-btn" onclick="previewMagazine('magazine1')">
+                                            <i class="fas fa-eye me-2"></i>Preview
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="card-body p-5">
+                                    <span class="badge bg-danger mb-3">Featured</span>
+                                    <h3 class="card-title fw-bold">Creative Minds Quarterly</h3>
+                                    <p class="card-text text-muted mb-4">A showcase of creative writing and artistic expression from young talents across the globe. This quarterly publication features poetry, short stories, visual arts, and innovative multimedia pieces that push the boundaries of traditional journalism.</p>
+                                    <div class="d-flex gap-4">
+                                        <span class="badge bg-primary">Issue #12 - Spring 2024</span>
+                                        <span class="badge bg-secondary">48 pages</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regular Magazines -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card border-0 shadow h-100 magazine-card">
+                        <div class="position-relative magazine-cover">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                 class="card-img-top" style="height: 300px; object-fit: cover;" alt="Tech Tomorrow">
+                            <div class="magazine-overlay">
+                                <button class="btn btn-light mb-2 read-btn" onclick="openFlipbook('magazine2')">
+                                    <i class="fas fa-book-open me-2"></i>Read Magazine
+                                </button>
+                                <button class="btn btn-outline-light preview-btn" onclick="previewMagazine('magazine2')">
+                                    <i class="fas fa-eye me-2"></i>Preview
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Tech Tomorrow</h5>
+                            <p class="card-text text-muted">Exploring the future of technology through student perspectives. From AI and machine learning to sustainable tech solutions.</p>
+                            <div class="d-flex gap-2">
+                                <span class="badge bg-success small">Issue #8 - March 2024</span>
+                                <span class="badge bg-secondary small">36 pages</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card border-0 shadow h-100 magazine-card">
+                        <div class="position-relative magazine-cover">
+                            <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                 class="card-img-top" style="height: 300px; object-fit: cover;" alt="Global Perspectives">
+                            <div class="magazine-overlay">
+                                <button class="btn btn-light mb-2 read-btn" onclick="openFlipbook('magazine3')">
+                                    <i class="fas fa-book-open me-2"></i>Read Magazine
+                                </button>
+                                <button class="btn btn-outline-light preview-btn" onclick="previewMagazine('magazine3')">
+                                    <i class="fas fa-eye me-2"></i>Preview
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Global Perspectives</h5>
+                            <p class="card-text text-muted">International stories and cultural insights from student journalists worldwide. This publication brings together diverse voices to explore global issues, cultural exchanges, and international affairs.</p>
+                            <div class="d-flex gap-2">
+                                <span class="badge bg-success small">Issue #15 - February 2024</span>
+                                <span class="badge bg-secondary small">52 pages</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archive Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4" data-aos="fade-up">Magazine Archive</h2>
+            
+            <div class="text-center mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-outline-primary filter-btn active" data-filter="all">All Issues</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="creative">Creative Minds</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="tech">Tech Tomorrow</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="global">Global Perspectives</button>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card border-0 shadow">
+                        <img src="https://via.placeholder.com/400x500/3498db/ffffff?text=CMQ+11" class="card-img-top" alt="Creative Minds #11">
+                        <div class="card-body">
+                            <h5 class="card-title">Creative Minds #11</h5>
+                            <p class="card-text"><small class="text-muted">Winter 2023</small></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card border-0 shadow">
+                        <img src="https://via.placeholder.com/400x500/e74c3c/ffffff?text=TT+7" class="card-img-top" alt="Tech Tomorrow #7">
+                        <div class="card-body">
+                            <h5 class="card-title">Tech Tomorrow #7</h5>
+                            <p class="card-text"><small class="text-muted">December 2023</small></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card border-0 shadow">
+                        <img src="https://via.placeholder.com/400x500/27ae60/ffffff?text=GP+14" class="card-img-top" alt="Global Perspectives #14">
+                        <div class="card-body">
+                            <h5 class="card-title">Global Perspectives #14</h5>
+                            <p class="card-text"><small class="text-muted">January 2024</small></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card border-0 shadow">
+                        <img src="https://via.placeholder.com/400x500/3498db/ffffff?text=CMQ+10" class="card-img-top" alt="Creative Minds #10">
+                        <div class="card-body">
+                            <h5 class="card-title">Creative Minds #10</h5>
+                            <p class="card-text"><small class="text-muted">Fall 2023</small></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card border-0 shadow">
+                        <img src="https://via.placeholder.com/400x500/e74c3c/ffffff?text=TT+6" class="card-img-top" alt="Tech Tomorrow #6">
+                        <div class="card-body">
+                            <h5 class="card-title">Tech Tomorrow #6</h5>
+                            <p class="card-text"><small class="text-muted">October 2023</small></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card border-0 shadow">
+                        <img src="https://via.placeholder.com/400x500/27ae60/ffffff?text=GP+13" class="card-img-top" alt="Global Perspectives #13">
+                        <div class="card-body">
+                            <h5 class="card-title">Global Perspectives #13</h5>
+                            <p class="card-text"><small class="text-muted">November 2023</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submission Guidelines -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="display-6 fw-bold mb-3">Submit to Our Magazines</h2>
+                    <p class="lead">Are you a young journalist or creative writer? We're always looking for fresh perspectives and innovative content.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card bg-transparent border-light text-white h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-pen-fancy fa-3x mb-3"></i>
+                            <h5 class="card-title">Creative Minds Quarterly</h5>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="fas fa-check text-warning me-2"></i>Poetry, short stories, creative essays</li>
+                                <li><i class="fas fa-check text-warning me-2"></i>Visual art and photography</li>
+                                <li><i class="fas fa-check text-warning me-2"></i>Multimedia projects</li>
+                                <li><i class="fas fa-check text-warning me-2"></i>Deadline: First day of each season</li>
+                            </ul>
+                            <button class="btn btn-light mt-3">
+                                <i class="fas fa-upload me-2"></i>Submit Work
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card bg-transparent border-light text-white h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-microchip fa-3x mb-3"></i>
+                            <h5 class="card-title">Tech Tomorrow</h5>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="fas fa-check text-warning me-2"></i>Technology reviews and analysis</li>
+                                <li><i class="fas fa-check text-warning me-2"></i>Future trend predictions</li>
+                                <li><i class="fas fa-check text-warning me-2"></i>Innovation spotlights</li>
+                                <li><i class="fas fa-check text-warning me-2"></i>Deadline: 15th of each month</li>
+                            </ul>
+                            <button class="btn btn-light mt-3">
+                                <i class="fas fa-upload me-2"></i>Submit Article
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card bg-transparent border-light text-white h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-globe fa-3x mb-3"></i>
+                            <h5 class="card-title">Global Perspectives</h5>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="fas fa-check text-warning me-2"></i>International news analysis</li>
+                                <li><i class="fas fa-check text-warning me-2"></i>Cultural features</li>
+                                <li><i class="fas fa-check text-warning me-2"></i>Travel journalism</li>
+                                <li><i class="fas fa-check text-warning me-2"></i>Deadline: 20th of each month</li>
+                            </ul>
+                            <button class="btn btn-light mt-3">
+                                <i class="fas fa-upload me-2"></i>Submit Story
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4>SYJ Times</h4>
+                    <p>Society of Young Journalists - Empowering the next generation of journalists through quality reporting, storytelling, and comprehensive coverage of issues that matter to young people around the world.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="about.html" class="text-white">About</a></li>
+                        <li><a href="articles.html" class="text-white">Articles</a></li>
+                        <li><a href="magazines.html" class="text-white">Magazines</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center mt-4">
+                <p class="mb-0">&copy; 2024 SYJ Times. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Flipbook Modal -->
+    <div id="flipbook-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeFlipbook()">&times;</span>
+            <div id="flipbook-container">
+                <!-- Flipbook content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="modal">
+        <div class="modal-content preview-modal">
+            <span class="close" onclick="closePreview()">&times;</span>
+            <div id="preview-container">
+                <!-- Preview content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <script src="magazines.js"></script>
+</body>
+</html>

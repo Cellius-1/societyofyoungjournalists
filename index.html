@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYJ Times - Society of Young Journalists</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-newspaper me-2"></i>SYJ Times
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="articles.html">Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="magazines.html">Magazines</a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary ms-3" type="button">
+                    <i class="fas fa-bell me-2"></i>Subscribe
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section position-relative overflow-hidden">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="row min-vh-100 align-items-center">
+                <div class="col-lg-8">
+                    <div class="hero-content text-white" data-aos="fade-up" data-aos-duration="1000">
+                        <h1 class="display-2 fw-bold mb-4">SYJ Times</h1>
+                        <p class="lead fs-4 mb-4">Society of Young Journalists</p>
+                        <p class="fs-5 mb-5 opacity-90">Empowering the next generation of journalists through quality reporting, comprehensive coverage, and innovative storytelling that matters to young people worldwide.</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="articles.html" class="btn btn-light btn-lg px-4">
+                                <i class="fas fa-newspaper me-2"></i>Read Articles
+                            </a>
+                            <a href="about.html" class="btn btn-outline-light btn-lg px-4">
+                                <i class="fas fa-users me-2"></i>Our Team
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator position-absolute bottom-0 start-50 translate-middle-x mb-4">
+            <i class="fas fa-chevron-down text-white opacity-75 animate-bounce"></i>
+        </div>
+    </section>
+
+    <!-- Featured Articles Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-3">Latest Articles</h2>
+                    <p class="lead text-muted">Stay informed with our comprehensive coverage</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Featured Article -->
+                <div class="col-lg-8 mb-4" data-aos="fade-right">
+                    <div class="card border-0 shadow-lg h-100 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                                 class="card-img-top" alt="Featured Article" style="height: 300px; object-fit: cover;">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge bg-danger fs-6 px-3 py-2">Breaking News</span>
+                            </div>
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="card-title fw-bold mb-3">Climate Summit Reaches Historic Agreement</h3>
+                            <p class="card-text text-muted mb-3">World leaders have reached a groundbreaking consensus on climate action, setting ambitious targets for carbon reduction and renewable energy adoption...</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" 
+                                         class="rounded-circle me-3" width="40" height="40" alt="Author">
+                                    <div>
+                                        <small class="text-muted d-block">By Sarah Chen</small>
+                                        <small class="text-muted">Dec 15, 2024 • 5 min read</small>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Secondary Articles -->
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-12 mb-4" data-aos="fade-left" data-aos-delay="100">
+                            <div class="card border-0 shadow h-100">
+                                <div class="row g-0">
+                                    <div class="col-4">
+                                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
+                                             class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Tech Article">
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="card-body p-3">
+                                            <span class="badge bg-primary small mb-2">Technology</span>
+                                            <h6 class="card-title mb-2">AI in Education Revolution</h6>
+                                            <small class="text-muted">By Emma Thompson • Dec 14</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 mb-4" data-aos="fade-left" data-aos-delay="200">
+                            <div class="card border-0 shadow h-100">
+                                <div class="row g-0">
+                                    <div class="col-4">
+                                        <img src="https://images.unsplash.com/photo-1541746972996-4e0b0f93e586?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
+                                             class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Culture Article">
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="card-body p-3">
+                                            <span class="badge bg-success small mb-2">Culture</span>
+                                            <h6 class="card-title mb-2">Student Art Exhibition</h6>
+                                            <small class="text-muted">By David Kim • Dec 13</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12" data-aos="fade-left" data-aos-delay="300">
+                            <div class="card border-0 shadow h-100">
+                                <div class="row g-0">
+                                    <div class="col-4">
+                                        <img src="https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
+                                             class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Sports Article">
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="card-body p-3">
+                                            <span class="badge bg-warning small mb-2">Sports</span>
+                                            <h6 class="card-title mb-2">Championship Finals</h6>
+                                            <small class="text-muted">By James Wilson • Dec 12</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="zoom-in">
+                    <h2 class="display-6 fw-bold mb-3">Stay Updated</h2>
+                    <p class="lead mb-4">Get the latest articles and updates delivered directly to your inbox</p>
+                    <form class="row g-2 justify-content-center">
+                        <div class="col-md-6">
+                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email">
+                        </div>
+                        <div class="col-md-auto">
+                            <button type="submit" class="btn btn-light btn-lg px-4">
+                                <i class="fas fa-paper-plane me-2"></i>Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-newspaper me-2 text-primary"></i>SYJ Times
+                    </h5>
+                    <p class="text-light opacity-75">Society of Young Journalists - Empowering the next generation through quality reporting and comprehensive coverage.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-light"><i class="fab fa-twitter fs-5"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram fs-5"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-linkedin fs-5"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-facebook fs-5"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none opacity-75">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-light text-decoration-none opacity-75">About</a></li>
+                        <li class="mb-2"><a href="articles.html" class="text-light text-decoration-none opacity-75">Articles</a></li>
+                        <li class="mb-2"><a href="magazines.html" class="text-light text-decoration-none opacity-75">Magazines</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Categories</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none opacity-75">Politics</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none opacity-75">Technology</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none opacity-75">Culture</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none opacity-75">Environment</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-12">
+                    <h6 class="fw-bold mb-3">Contact</h6>
+                    <p class="text-light opacity-75 mb-2">
+                        <i class="fas fa-envelope me-2"></i>info@syjtimes.com
+                    </p>
+                    <p class="text-light opacity-75">
+                        <i class="fas fa-globe me-2"></i>www.syjtimes.com
+                    </p>
+                </div>
+            </div>
+            <hr class="my-4 opacity-25">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light opacity-75">&copy; 2024 SYJ Times. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-light text-decoration-none opacity-75 me-3">Privacy Policy</a>
+                    <a href="#" class="text-light text-decoration-none opacity-75">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

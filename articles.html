@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - SYJ Times</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="articles-page">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-newspaper me-2"></i>SYJ Times
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="articles.html">Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="magazines.html">Magazines</a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary ms-3">
+                    <i class="fas fa-bell me-2"></i>Subscribe
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="articles-hero py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h1 class="display-4 fw-bold text-white mb-4">Latest Articles</h1>
+                    <p class="lead text-white opacity-90">Stay informed with our comprehensive coverage of current events, culture, technology, and more</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Article Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row" data-aos="fade-up">
+                <div class="col-12">
+                    <div class="card border-0 shadow-lg overflow-hidden mb-5">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                                     class="img-fluid h-100" style="object-fit: cover;" alt="Featured Article">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card-body p-5 h-100 d-flex flex-column justify-content-center">
+                                    <span class="badge bg-danger mb-3 align-self-start">Breaking News</span>
+                                    <h2 class="card-title fw-bold mb-3">Major Climate Summit Reaches Historic Agreement</h2>
+                                    <p class="card-text text-muted mb-4">World leaders have reached a groundbreaking consensus on climate action, setting ambitious targets for carbon reduction and renewable energy adoption. This historic agreement marks a turning point in global environmental policy.</p>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" 
+                                             class="rounded-circle me-3" width="50" height="50" alt="Author">
+                                        <div>
+                                            <div class="fw-semibold">Sarah Chen</div>
+                                            <small class="text-muted">December 15, 2024 • 5 min read</small>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary align-self-start">
+                                        <i class="fas fa-arrow-right me-2"></i>Read Full Article
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter Section -->
+    <section class="py-4 bg-light border-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-12" data-aos="fade-up">
+                    <h3 class="text-center mb-4">Browse by Category</h3>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <button class="btn btn-outline-primary category-btn active" data-category="all">
+                            <i class="fas fa-list me-2"></i>All Articles
+                        </button>
+                        <button class="btn btn-outline-primary category-btn" data-category="politics">
+                            <i class="fas fa-balance-scale me-2"></i>Politics
+                        </button>
+                        <button class="btn btn-outline-primary category-btn" data-category="technology">
+                            <i class="fas fa-microchip me-2"></i>Technology
+                        </button>
+                        <button class="btn btn-outline-primary category-btn" data-category="culture">
+                            <i class="fas fa-palette me-2"></i>Culture
+                        </button>
+                        <button class="btn btn-outline-primary category-btn" data-category="business">
+                            <i class="fas fa-chart-line me-2"></i>Business
+                        </button>
+                        <button class="btn btn-outline-primary category-btn" data-category="sports">
+                            <i class="fas fa-futbol me-2"></i>Sports
+                        </button>
+                        <button class="btn btn-outline-primary category-btn" data-category="environment">
+                            <i class="fas fa-leaf me-2"></i>Environment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Grid -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card border-0 shadow h-100 article-item" data-category="politics">
+                        <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Politics">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Politics</span>
+                            <h5 class="card-title">New Youth Voting Initiative Launched</h5>
+                            <p class="card-text text-muted">A comprehensive program aims to increase political engagement among young voters through education and accessibility improvements.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">By Michael Rodriguez</small>
+                                <small class="text-muted">Dec 14, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card border-0 shadow h-100 article-item" data-category="technology">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Technology">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Technology</span>
+                            <h5 class="card-title">AI in Education: Transforming Learning</h5>
+                            <p class="card-text text-muted">Artificial intelligence is revolutionizing how students learn and teachers teach, creating personalized educational experiences.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">By Emma Thompson</small>
+                                <small class="text-muted">Dec 13, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card border-0 shadow h-100 article-item" data-category="culture">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Culture">
+                        <div class="card-body">
+                            <span class="badge bg-warning mb-2">Culture</span>
+                            <h5 class="card-title">Student Art Exhibition Showcases Diversity</h5>
+                            <p class="card-text text-muted">Local artists celebrate cultural heritage through a vibrant collection of paintings, sculptures, and digital art.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">By David Kim</small>
+                                <small class="text-muted">Dec 12, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card border-0 shadow h-100 article-item" data-category="business">
+                        <img src="https://images.unsplash.com/photo-1518709268804-4b8f8e4f8a4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Business">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Business</span>
+                            <h5 class="card-title">Youth Entrepreneurship on the Rise</h5>
+                            <p class="card-text text-muted">Young entrepreneurs are launching innovative startups at record rates, driven by digital technology and social impact goals.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">By Lisa Park</small>
+                                <small class="text-muted">Dec 11, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card border-0 shadow h-100 article-item" data-category="sports">
+                        <img src="https://images.unsplash.com/photo-1501594907350-7a5f8e4f8a4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Sports">
+                        <div class="card-body">
+                            <span class="badge bg-danger mb-2">Sports</span>
+                            <h5 class="card-title">High School Championship Finals</h5>
+                            <p class="card-text text-muted">Teams prepare for the ultimate showdown in this year's most anticipated high school sports championship.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">By James Wilson</small>
+                                <small class="text-muted">Dec 10, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card border-0 shadow h-100 article-item" data-category="environment">
+                        <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Environment">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Environment</span>
+                            <h5 class="card-title">Campus Sustainability Initiatives</h5>
+                            <p class="card-text text-muted">Universities nationwide are implementing green technologies and sustainable practices to reduce their environmental impact.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">By Rachel Green</small>
+                                <small class="text-muted">Dec 9, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                    <div class="card border-0 shadow h-100 article-item" data-category="technology">
+                        <img src="https://images.unsplash.com/photo-1581091870620-4b8f8e4f8a4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Tech Innovation">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Technology</span>
+                            <h5 class="card-title">Student Developers Create Mental Health App</h5>
+                            <p class="card-text text-muted">A team of university students has developed an innovative app to support peer mental health and wellness.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">By Alex Chen</small>
+                                <small class="text-muted">Dec 8, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="800">
+                    <div class="card border-0 shadow h-100 article-item" data-category="politics">
+                        <img src="https://images.unsplash.com/photo-1518709268804-4b8f8e4f8a4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Student Government">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Politics</span>
+                            <h5 class="card-title">Student Government Elections Approach</h5>
+                            <p class="card-text text-muted">Candidates present their platforms for improving campus life and student representation in university decisions.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">By Jordan Lee</small>
+                                <small class="text-muted">Dec 7, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="900">
+                    <div class="card border-0 shadow h-100 article-item" data-category="culture">
+                        <img src="https://images.unsplash.com/photo-1581091870620-4b8f8e4f8a4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             class="card-img-top" style="height: 200px; object-fit: cover;" alt="Music Festival">
+                        <div class="card-body">
+                            <span class="badge bg-warning mb-2">Culture</span>
+                            <h5 class="card-title">Annual Music Festival Celebrates Diversity</h5>
+                            <p class="card-text text-muted">Students from various cultural backgrounds showcase their musical talents in this year's diversity celebration.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">By Maria Santos</small>
+                                <small class="text-muted">Dec 6, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-5" data-aos="fade-up">
+                <button class="btn btn-primary btn-lg load-more-btn">
+                    <i class="fas fa-plus me-2"></i>Load More Articles
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="zoom-in">
+                    <h2 class="display-6 fw-bold mb-3">Stay Updated</h2>
+                    <p class="lead mb-4">Get the latest articles delivered directly to your inbox</p>
+                    <form class="row g-2 justify-content-center">
+                        <div class="col-md-6">
+                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email address">
+                        </div>
+                        <div class="col-md-auto">
+                            <button type="submit" class="btn btn-light btn-lg px-4">
+                                <i class="fas fa-paper-plane me-2"></i>Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold">SYJ Times</h5>
+                    <p>Society of Young Journalists - Empowering the next generation of journalists through quality reporting, storytelling, and comprehensive coverage of issues that matter to young people around the world.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="articles.html" class="text-white text-decoration-none">Articles</a></li>
+                        <li><a href="magazines.html" class="text-white text-decoration-none">Magazines</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold">Follow Us</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white fs-5">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white fs-5">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white fs-5">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-white fs-5">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top pt-4 mt-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="mb-0">&copy; 2024 SYJ Times. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+                        <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <script src="articles.js"></script>
+</body>
+</html>
