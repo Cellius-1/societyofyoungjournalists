@@ -24,10 +24,14 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">SYJ</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-newspaper me-2"></i>SYJ Times
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -43,7 +47,9 @@
                         <a class="nav-link active" href="magazines.html">Magazines</a>
                     </li>
                 </ul>
-                <button class="btn btn-primary ms-lg-3">Subscribe</button>
+                <button class="btn btn-primary ms-3">
+                    <i class="fas fa-bell me-2"></i>Subscribe
+                </button>
             </div>
         </div>
     </nav>
@@ -53,96 +59,303 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-lg-8" data-aos="fade-up">
-                    <h1 class="display-4 fw-bold text-white mb-4">Partner Magazines</h1>
-                    <p class="lead text-white opacity-90">Explore our featured student-led magazines in an interactive flipbook format</p>
+                    <h1 class="display-4 fw-bold text-white mb-4">Publishing Partners</h1>
+                    <p class="lead text-white opacity-90">Collaborating with student publications and literary magazines worldwide</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Magazines -->
-    <section class="py-5">
+
+
+    <!-- Flipbook Magazine Showcase -->
+    <section class="py-5 bg-white">
         <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold mb-3">Featured Magazines</h2>
+                    <p class="lead text-muted">Browse our collection of student publications in interactive flipbook format</p>
+                </div>
+            </div>
+            
             <div class="row g-4">
-                <!-- Featured Magazine -->
-                <div class="col-12 mb-4" data-aos="fade-up">
-                    <div class="card border-0 shadow-lg">
-                        <div class="row g-0">
-                            <div class="col-lg-4">
-                                <div class="position-relative magazine-cover">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" 
-                                         class="card-img h-100" style="object-fit: cover;" alt="Creative Minds Quarterly">
-                                    <div class="magazine-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-                                        <button class="btn btn-light btn-lg mb-3 read-btn" onclick="openFlipbook('magazine1')">
-                                            <i class="fas fa-book-open me-2"></i>Read Magazine
-                                        </button>
-                                        <button class="btn btn-outline-light preview-btn" onclick="previewMagazine('magazine1')">
-                                            <i class="fas fa-eye me-2"></i>Preview
-                                        </button>
+                <!-- Magazine 1 - Sonderful Writings -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="magazine-flipbook-card h-100">
+                        <div class="magazine-cover-container">
+                            <div class="magazine-cover">
+                                <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Sonderful Writings Cover" class="cover-image">
+                                <div class="magazine-overlay">
+                                    <div class="magazine-info">
+                                        <h4 class="text-white fw-bold mb-2">Sonderful Writings</h4>
+                                        <p class="text-white mb-3">Literary Magazine • Issue #12</p>
+                                        <div class="magazine-actions">
+                                            <button class="btn btn-light me-2" onclick="previewMagazine('sonderful')">
+                                                <i class="fas fa-eye me-1"></i>Preview
+                                            </button>
+                                            <button class="btn btn-primary" onclick="openFlipbook('sonderful')">
+                                                <i class="fas fa-book-open me-1"></i>Read
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-8">
-                                <div class="card-body p-5">
-                                    <span class="badge bg-danger mb-3">Featured</span>
-                                    <h3 class="card-title fw-bold">Creative Minds Quarterly</h3>
-                                    <p class="card-text text-muted mb-4">A showcase of creative writing and artistic expression from young talents across the globe. This quarterly publication features poetry, short stories, visual arts, and innovative multimedia pieces that push the boundaries of traditional journalism.</p>
-                                    <div class="d-flex gap-4">
-                                        <span class="badge bg-primary">Issue #12 - Spring 2024</span>
-                                        <span class="badge bg-secondary">48 pages</span>
-                                    </div>
-                                </div>
+                            <div class="magazine-spine">
+                                <span class="spine-text">Sonderful Writings</span>
+                            </div>
+                        </div>
+                        <div class="magazine-details mt-3">
+                            <h5 class="fw-bold mb-2">Sonderful Writings</h5>
+                            <p class="text-muted small mb-2">
+                                <i class="fas fa-calendar me-1"></i>December 2024 • 
+                                <i class="fas fa-file-alt me-1 ms-2"></i>32 Pages
+                            </p>
+                            <p class="text-muted small mb-3">A collection of creative works showcasing emerging literary talents from around the world.</p>
+                            <div class="d-flex gap-2">
+                                <a href="mailto:sonderfulwritings@gmail.com?subject=Subscribe to Sonderful Writings" 
+                                   class="btn btn-outline-success btn-sm flex-fill">
+                                    <i class="fas fa-bell me-1"></i>Subscribe
+                                </a>
+                                <a href="mailto:sonderfulwritings@gmail.com?subject=Submission to Sonderful Writings" 
+                                   class="btn btn-outline-primary btn-sm flex-fill">
+                                    <i class="fas fa-paper-plane me-1"></i>Submit
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Regular Magazines -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card border-0 shadow h-100 magazine-card">
-                        <div class="position-relative magazine-cover">
-                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                                 class="card-img-top" style="height: 300px; object-fit: cover;" alt="Tech Tomorrow">
-                            <div class="magazine-overlay">
-                                <button class="btn btn-light mb-2 read-btn" onclick="openFlipbook('magazine2')">
-                                    <i class="fas fa-book-open me-2"></i>Read Magazine
-                                </button>
-                                <button class="btn btn-outline-light preview-btn" onclick="previewMagazine('magazine2')">
-                                    <i class="fas fa-eye me-2"></i>Preview
-                                </button>
+                <!-- Magazine 2 - NeuroNuggets -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="magazine-flipbook-card h-100">
+                        <div class="magazine-cover-container">
+                            <div class="magazine-cover">
+                                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="NeuroNuggets Cover" class="cover-image">
+                                <div class="magazine-overlay">
+                                    <div class="magazine-info">
+                                        <h4 class="text-white fw-bold mb-2">NeuroNuggets</h4>
+                                        <p class="text-white mb-3">Science Blog • Latest Edition</p>
+                                        <div class="magazine-actions">
+                                            <button class="btn btn-light me-2" onclick="previewMagazine('neuronuggets')">
+                                                <i class="fas fa-eye me-1"></i>Preview
+                                            </button>
+                                            <button class="btn btn-primary" onclick="openFlipbook('neuronuggets')">
+                                                <i class="fas fa-book-open me-1"></i>Read
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="magazine-spine">
+                                <span class="spine-text">NeuroNuggets</span>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Tech Tomorrow</h5>
-                            <p class="card-text text-muted">Exploring the future of technology through student perspectives. From AI and machine learning to sustainable tech solutions.</p>
+                        <div class="magazine-details mt-3">
+                            <h5 class="fw-bold mb-2">NeuroNuggets</h5>
+                            <p class="text-muted small mb-2">
+                                <i class="fas fa-calendar me-1"></i>December 2024 • 
+                                <i class="fas fa-file-alt me-1 ms-2"></i>28 Pages
+                            </p>
+                            <p class="text-muted small mb-3">Exploring the fascinating world of neuroscience through engaging articles and research insights.</p>
                             <div class="d-flex gap-2">
-                                <span class="badge bg-success small">Issue #8 - March 2024</span>
-                                <span class="badge bg-secondary small">36 pages</span>
+                                <a href="mailto:siya.c.patel06@gmail.com?subject=Subscribe to NeuroNuggets" 
+                                   class="btn btn-outline-success btn-sm flex-fill">
+                                    <i class="fas fa-bell me-1"></i>Subscribe
+                                </a>
+                                <a href="mailto:siya.c.patel06@gmail.com?subject=Submission to NeuroNuggets" 
+                                   class="btn btn-outline-primary btn-sm flex-fill">
+                                    <i class="fas fa-paper-plane me-1"></i>Submit
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card border-0 shadow h-100 magazine-card">
-                        <div class="position-relative magazine-cover">
-                            <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                                 class="card-img-top" style="height: 300px; object-fit: cover;" alt="Global Perspectives">
-                            <div class="magazine-overlay">
-                                <button class="btn btn-light mb-2 read-btn" onclick="openFlipbook('magazine3')">
-                                    <i class="fas fa-book-open me-2"></i>Read Magazine
-                                </button>
-                                <button class="btn btn-outline-light preview-btn" onclick="previewMagazine('magazine3')">
-                                    <i class="fas fa-eye me-2"></i>Preview
-                                </button>
+                <!-- Magazine 3 - Eunoia Magazine -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="magazine-flipbook-card h-100">
+                        <div class="magazine-cover-container">
+                            <div class="magazine-cover">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Eunoia Magazine Cover" class="cover-image">
+                                <div class="magazine-overlay">
+                                    <div class="magazine-info">
+                                        <h4 class="text-white fw-bold mb-2">Eunoia Magazine</h4>
+                                        <p class="text-white mb-3">Youth Culture • Volume 3</p>
+                                        <div class="magazine-actions">
+                                            <button class="btn btn-light me-2" onclick="previewMagazine('eunoia')">
+                                                <i class="fas fa-eye me-1"></i>Preview
+                                            </button>
+                                            <button class="btn btn-primary" onclick="openFlipbook('eunoia')">
+                                                <i class="fas fa-book-open me-1"></i>Read
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="magazine-spine">
+                                <span class="spine-text">Eunoia</span>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Global Perspectives</h5>
-                            <p class="card-text text-muted">International stories and cultural insights from student journalists worldwide. This publication brings together diverse voices to explore global issues, cultural exchanges, and international affairs.</p>
+                        <div class="magazine-details mt-3">
+                            <h5 class="fw-bold mb-2">Eunoia Magazine</h5>
+                            <p class="text-muted small mb-2">
+                                <i class="fas fa-calendar me-1"></i>December 2024 • 
+                                <i class="fas fa-file-alt me-1 ms-2"></i>40 Pages
+                            </p>
+                            <p class="text-muted small mb-3">Celebrating youth culture and diverse perspectives from the worldwide youth community.</p>
                             <div class="d-flex gap-2">
-                                <span class="badge bg-success small">Issue #15 - February 2024</span>
-                                <span class="badge bg-secondary small">52 pages</span>
+                                <a href="mailto:magzeunoia@gmail.com?subject=Subscribe to Eunoia Magazine" 
+                                   class="btn btn-outline-success btn-sm flex-fill">
+                                    <i class="fas fa-bell me-1"></i>Subscribe
+                                </a>
+                                <a href="mailto:magzeunoia@gmail.com?subject=Submission to Eunoia Magazine" 
+                                   class="btn btn-outline-primary btn-sm flex-fill">
+                                    <i class="fas fa-paper-plane me-1"></i>Submit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Magazine 4 - Pavlov's Daughters -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="magazine-flipbook-card h-100">
+                        <div class="magazine-cover-container">
+                            <div class="magazine-cover">
+                                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Pavlov's Daughters Cover" class="cover-image">
+                                <div class="magazine-overlay">
+                                    <div class="magazine-info">
+                                        <h4 class="text-white fw-bold mb-2">Pavlov's Daughters</h4>
+                                        <p class="text-white mb-3">Feminist Zine • Issue #8</p>
+                                        <div class="magazine-actions">
+                                            <button class="btn btn-light me-2" onclick="previewMagazine('pavlovs')">
+                                                <i class="fas fa-eye me-1"></i>Preview
+                                            </button>
+                                            <button class="btn btn-primary" onclick="openFlipbook('pavlovs')">
+                                                <i class="fas fa-book-open me-1"></i>Read
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="magazine-spine">
+                                <span class="spine-text">Pavlov's Daughters</span>
+                            </div>
+                        </div>
+                        <div class="magazine-details mt-3">
+                            <h5 class="fw-bold mb-2">Pavlov's Daughters</h5>
+                            <p class="text-muted small mb-2">
+                                <i class="fas fa-calendar me-1"></i>December 2024 • 
+                                <i class="fas fa-file-alt me-1 ms-2"></i>24 Pages
+                            </p>
+                            <p class="text-muted small mb-3">A powerful feminist zine featuring voices and stories that challenge and inspire.</p>
+                            <div class="d-flex gap-2">
+                                <a href="mailto:pavlovsdaughters.zine@gmail.com?subject=Subscribe to Pavlov's Daughters" 
+                                   class="btn btn-outline-success btn-sm flex-fill">
+                                    <i class="fas fa-bell me-1"></i>Subscribe
+                                </a>
+                                <a href="mailto:pavlovsdaughters.zine@gmail.com?subject=Submission to Pavlov's Daughters" 
+                                   class="btn btn-outline-primary btn-sm flex-fill">
+                                    <i class="fas fa-paper-plane me-1"></i>Submit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Magazine 5 - SYJ Special Edition -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="magazine-flipbook-card h-100">
+                        <div class="magazine-cover-container">
+                            <div class="magazine-cover">
+                                <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="SYJ Times Special Cover" class="cover-image">
+                                <div class="magazine-overlay">
+                                    <div class="magazine-info">
+                                        <h4 class="text-white fw-bold mb-2">SYJ Times Special</h4>
+                                        <p class="text-white mb-3">Year-End Edition • 2024</p>
+                                        <div class="magazine-actions">
+                                            <button class="btn btn-light me-2" onclick="previewMagazine('syj-special')">
+                                                <i class="fas fa-eye me-1"></i>Preview
+                                            </button>
+                                            <button class="btn btn-primary" onclick="openFlipbook('syj-special')">
+                                                <i class="fas fa-book-open me-1"></i>Read
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="magazine-spine">
+                                <span class="spine-text">SYJ Special</span>
+                            </div>
+                        </div>
+                        <div class="magazine-details mt-3">
+                            <h5 class="fw-bold mb-2">SYJ Times Special Edition</h5>
+                            <p class="text-muted small mb-2">
+                                <i class="fas fa-calendar me-1"></i>December 2024 • 
+                                <i class="fas fa-file-alt me-1 ms-2"></i>48 Pages
+                            </p>
+                            <p class="text-muted small mb-3">Our comprehensive year-end special featuring the best articles and stories from 2024.</p>
+                            <div class="d-flex gap-2">
+                                <a href="mailto:societyofyoungjournalists@gmail.com?subject=Subscribe to SYJ Times" 
+                                   class="btn btn-outline-success btn-sm flex-fill">
+                                    <i class="fas fa-bell me-1"></i>Subscribe
+                                </a>
+                                <a href="mailto:societyofyoungjournalists@gmail.com?subject=Submission to SYJ Times" 
+                                   class="btn btn-outline-primary btn-sm flex-fill">
+                                    <i class="fas fa-paper-plane me-1"></i>Submit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Magazine 6 - Guest Publication -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="magazine-flipbook-card h-100">
+                        <div class="magazine-cover-container">
+                            <div class="magazine-cover">
+                                <img src="https://images.unsplash.com/photo-1516414447565-b14be0adf13e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Global Voices Cover" class="cover-image">
+                                <div class="magazine-overlay">
+                                    <div class="magazine-info">
+                                        <h4 class="text-white fw-bold mb-2">Global Voices</h4>
+                                        <p class="text-white mb-3">International Stories • Issue #1</p>
+                                        <div class="magazine-actions">
+                                            <button class="btn btn-light me-2" onclick="previewMagazine('global-voices')">
+                                                <i class="fas fa-eye me-1"></i>Preview
+                                            </button>
+                                            <button class="btn btn-primary" onclick="openFlipbook('global-voices')">
+                                                <i class="fas fa-book-open me-1"></i>Read
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="magazine-spine">
+                                <span class="spine-text">Global Voices</span>
+                            </div>
+                        </div>
+                        <div class="magazine-details mt-3">
+                            <h5 class="fw-bold mb-2">Global Voices</h5>
+                            <p class="text-muted small mb-2">
+                                <i class="fas fa-calendar me-1"></i>December 2024 • 
+                                <i class="fas fa-file-alt me-1 ms-2"></i>36 Pages
+                            </p>
+                            <p class="text-muted small mb-3">Stories and perspectives from young journalists across continents and cultures.</p>
+                            <div class="d-flex gap-2">
+                                <a href="mailto:societyofyoungjournalists@gmail.com?subject=Subscribe to Global Voices" 
+                                   class="btn btn-outline-success btn-sm flex-fill">
+                                    <i class="fas fa-bell me-1"></i>Subscribe
+                                </a>
+                                <a href="mailto:societyofyoungjournalists@gmail.com?subject=Submission to Global Voices" 
+                                   class="btn btn-outline-primary btn-sm flex-fill">
+                                    <i class="fas fa-paper-plane me-1"></i>Submit
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -151,145 +364,41 @@
         </div>
     </section>
 
-    <!-- Archive Section -->
+    <!-- Partnership Information -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center fw-bold mb-4" data-aos="fade-up">Magazine Archive</h2>
-            
-            <div class="text-center mb-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="btn-group" role="group">
-                    <button class="btn btn-outline-primary filter-btn active" data-filter="all">All Issues</button>
-                    <button class="btn btn-outline-primary filter-btn" data-filter="creative">Creative Minds</button>
-                    <button class="btn btn-outline-primary filter-btn" data-filter="tech">Tech Tomorrow</button>
-                    <button class="btn btn-outline-primary filter-btn" data-filter="global">Global Perspectives</button>
-                </div>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card border-0 shadow">
-                        <img src="https://via.placeholder.com/400x500/3498db/ffffff?text=CMQ+11" class="card-img-top" alt="Creative Minds #11">
-                        <div class="card-body">
-                            <h5 class="card-title">Creative Minds #11</h5>
-                            <p class="card-text"><small class="text-muted">Winter 2023</small></p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <h2 class="display-6 fw-bold mb-4">Join Our Network</h2>
+                    <p class="lead text-muted mb-4">
+                        Are you part of a student publication or literary magazine? We're always looking to expand our network of young writers and publishers.
+                    </p>
+                    <div class="row g-4 mt-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow h-100">
+                                <div class="card-body text-center p-4">
+                                    <i class="fas fa-handshake fa-3x text-primary mb-3"></i>
+                                    <h5 class="fw-bold mb-3">Partnership Benefits</h5>
+                                    <ul class="list-unstyled text-start">
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Cross-promotion opportunities</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Shared resources and content</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Collaborative projects</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Global network access</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card border-0 shadow">
-                        <img src="https://via.placeholder.com/400x500/e74c3c/ffffff?text=TT+7" class="card-img-top" alt="Tech Tomorrow #7">
-                        <div class="card-body">
-                            <h5 class="card-title">Tech Tomorrow #7</h5>
-                            <p class="card-text"><small class="text-muted">December 2023</small></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card border-0 shadow">
-                        <img src="https://via.placeholder.com/400x500/27ae60/ffffff?text=GP+14" class="card-img-top" alt="Global Perspectives #14">
-                        <div class="card-body">
-                            <h5 class="card-title">Global Perspectives #14</h5>
-                            <p class="card-text"><small class="text-muted">January 2024</small></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card border-0 shadow">
-                        <img src="https://via.placeholder.com/400x500/3498db/ffffff?text=CMQ+10" class="card-img-top" alt="Creative Minds #10">
-                        <div class="card-body">
-                            <h5 class="card-title">Creative Minds #10</h5>
-                            <p class="card-text"><small class="text-muted">Fall 2023</small></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
-                    <div class="card border-0 shadow">
-                        <img src="https://via.placeholder.com/400x500/e74c3c/ffffff?text=TT+6" class="card-img-top" alt="Tech Tomorrow #6">
-                        <div class="card-body">
-                            <h5 class="card-title">Tech Tomorrow #6</h5>
-                            <p class="card-text"><small class="text-muted">October 2023</small></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
-                    <div class="card border-0 shadow">
-                        <img src="https://via.placeholder.com/400x500/27ae60/ffffff?text=GP+13" class="card-img-top" alt="Global Perspectives #13">
-                        <div class="card-body">
-                            <h5 class="card-title">Global Perspectives #13</h5>
-                            <p class="card-text"><small class="text-muted">November 2023</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Submission Guidelines -->
-    <section class="py-5 bg-primary text-white">
-        <div class="container">
-            <div class="row justify-content-center text-center mb-5">
-                <div class="col-lg-8" data-aos="fade-up">
-                    <h2 class="display-6 fw-bold mb-3">Submit to Our Magazines</h2>
-                    <p class="lead">Are you a young journalist or creative writer? We're always looking for fresh perspectives and innovative content.</p>
-                </div>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card bg-transparent border-light text-white h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-pen-fancy fa-3x mb-3"></i>
-                            <h5 class="card-title">Creative Minds Quarterly</h5>
-                            <ul class="list-unstyled text-start">
-                                <li><i class="fas fa-check text-warning me-2"></i>Poetry, short stories, creative essays</li>
-                                <li><i class="fas fa-check text-warning me-2"></i>Visual art and photography</li>
-                                <li><i class="fas fa-check text-warning me-2"></i>Multimedia projects</li>
-                                <li><i class="fas fa-check text-warning me-2"></i>Deadline: First day of each season</li>
-                            </ul>
-                            <button class="btn btn-light mt-3">
-                                <i class="fas fa-upload me-2"></i>Submit Work
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card bg-transparent border-light text-white h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-microchip fa-3x mb-3"></i>
-                            <h5 class="card-title">Tech Tomorrow</h5>
-                            <ul class="list-unstyled text-start">
-                                <li><i class="fas fa-check text-warning me-2"></i>Technology reviews and analysis</li>
-                                <li><i class="fas fa-check text-warning me-2"></i>Future trend predictions</li>
-                                <li><i class="fas fa-check text-warning me-2"></i>Innovation spotlights</li>
-                                <li><i class="fas fa-check text-warning me-2"></i>Deadline: 15th of each month</li>
-                            </ul>
-                            <button class="btn btn-light mt-3">
-                                <i class="fas fa-upload me-2"></i>Submit Article
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card bg-transparent border-light text-white h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-globe fa-3x mb-3"></i>
-                            <h5 class="card-title">Global Perspectives</h5>
-                            <ul class="list-unstyled text-start">
-                                <li><i class="fas fa-check text-warning me-2"></i>International news analysis</li>
-                                <li><i class="fas fa-check text-warning me-2"></i>Cultural features</li>
-                                <li><i class="fas fa-check text-warning me-2"></i>Travel journalism</li>
-                                <li><i class="fas fa-check text-warning me-2"></i>Deadline: 20th of each month</li>
-                            </ul>
-                            <button class="btn btn-light mt-3">
-                                <i class="fas fa-upload me-2"></i>Submit Story
-                            </button>
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow h-100">
+                                <div class="card-body text-center p-4">
+                                    <i class="fas fa-envelope fa-3x text-success mb-3"></i>
+                                    <h5 class="fw-bold mb-3">Get In Touch</h5>
+                                    <p class="text-muted mb-3">Ready to partner with us? Send us your publication details and let's start collaborating.</p>
+                                    <a href="mailto:societyofyoungjournalists@gmail.com?subject=Partnership Inquiry" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane me-2"></i>Contact Us
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -298,57 +407,81 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h4>SYJ Times</h4>
-                    <p>Society of Young Journalists - Empowering the next generation of journalists through quality reporting, storytelling, and comprehensive coverage of issues that matter to young people around the world.</p>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <h4>Quick Links</h4>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-white">Home</a></li>
-                        <li><a href="about.html" class="text-white">About</a></li>
-                        <li><a href="articles.html" class="text-white">Articles</a></li>
-                        <li><a href="magazines.html" class="text-white">Magazines</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+            <div class="footer-content">
+                <div class="row">
+                    <div class="col-lg-4 mb-4 footer-section">
+                        <div class="footer-brand">
+                            <i class="fas fa-newspaper"></i>
+                            <h5>SYJ Times</h5>
+                        </div>
+                        <p class="footer-description">
+                            Building connections with student publications and literary magazines worldwide. Together, we're creating a global network of young voices in journalism and creative writing.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-2 col-md-6 mb-4 footer-section">
+                        <h6>Navigation</h6>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="articles.html">Articles</a></li>
+                            <li><a href="magazines.html">Magazines</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6 mb-4 footer-section">
+                        <h6>Our Partners</h6>
+                        <ul class="footer-links">
+                            <li><a href="mailto:sonderfulwritings@gmail.com">Sonderful Writings</a></li>
+                            <li><a href="mailto:siya.c.patel06@gmail.com">NeuroNuggets</a></li>
+                            <li><a href="mailto:magzeunoia@gmail.com">Eunoia Magazine</a></li>
+                            <li><a href="mailto:pavlovsdaughters.zine@gmail.com">Pavlov's Daughters</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-12 footer-section">
+                        <h6>Partnership</h6>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-handshake"></i>
+                                <a href="mailto:societyofyoungjournalists@gmail.com?subject=Partnership Inquiry">Partner With Us</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:societyofyoungjournalists@gmail.com">Contact Us</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom text-center mt-4">
-                <p class="mb-0">&copy; 2024 SYJ Times. All rights reserved.</p>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">&copy; 2024 SYJ Times. All rights reserved.</p>
+                    <div class="footer-policies">
+                        <a href="about.html#policies">Policies</a>
+                        <a href="mailto:societyofyoungjournalists@gmail.com">Contact</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
-
-    <!-- Flipbook Modal -->
-    <div id="flipbook-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeFlipbook()">&times;</span>
-            <div id="flipbook-container">
-                <!-- Flipbook content will be loaded here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Preview Modal -->
-    <div id="preview-modal" class="modal">
-        <div class="modal-content preview-modal">
-            <span class="close" onclick="closePreview()">&times;</span>
-            <div id="preview-container">
-                <!-- Preview content will be loaded here -->
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

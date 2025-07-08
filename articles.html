@@ -199,8 +199,11 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center" data-aos="zoom-in">
-                    <h2 class="display-6 fw-bold mb-3">Stay Updated</h2>
-                    <p class="lead mb-4">Get the latest articles delivered directly to your inbox</p>
+                    <h2 class="display-6 fw-bold mb-3">Stay Updated & Submit</h2>
+                    <p class="lead mb-4">Get the latest articles delivered directly to your inbox, or submit your own work to be featured</p>
+                    <div class="mb-4">
+                        <p class="text-white">Want to contribute? We welcome article submissions of at least 500 words. Send your ideas and completed pieces to <strong>societyofyoungjournalists@gmail.com</strong></p>
+                    </div>
                     <form class="row g-2 justify-content-center">
                         <div class="col-md-6">
                             <input type="email" class="form-control form-control-lg" placeholder="Enter your email address">
@@ -216,49 +219,111 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <!-- Comment Policy Section -->
+    <section class="py-4 bg-light border-top">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold">SYJ Times</h5>
-                    <p>Society of Young Journalists - Empowering the next generation of journalists through quality reporting, storytelling, and comprehensive coverage of issues that matter to young people around the world.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
-                        <li><a href="about.html" class="text-white text-decoration-none">About</a></li>
-                        <li><a href="articles.html" class="text-white text-decoration-none">Articles</a></li>
-                        <li><a href="magazines.html" class="text-white text-decoration-none">Magazines</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold">Follow Us</h5>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-white fs-5">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-white fs-5">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-white fs-5">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="text-white fs-5">
-                            <i class="fab fa-facebook"></i>
-                        </a>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <div class="alert alert-info">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-comments me-2"></i>Comment Policy
+                        </h5>
+                        <p class="mb-2">We support open discussion and conversation. However, any comments that contain misinformation, hate speech, personal attacks, profanity, or discrimination based on race, religion, gender, or sexual orientation will be removed.</p>
+                        <small class="text-muted">Help us maintain a respectful community for all readers.</small>
                     </div>
                 </div>
             </div>
-            <div class="border-top pt-4 mt-4">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
                 <div class="row">
-                    <div class="col-md-6">
-                        <p class="mb-0">&copy; 2024 SYJ Times. All rights reserved.</p>
+                    <!-- Brand Section -->
+                    <div class="col-lg-4 mb-4 footer-section">
+                        <div class="footer-brand">
+                            <i class="fas fa-newspaper"></i>
+                            <h5>SYJ Times</h5>
+                        </div>
+                        <p class="footer-description">
+                            Discover compelling stories, insightful analysis, and diverse perspectives from young journalists worldwide. Join our community of writers and readers shaping the future of journalism.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://twitter.com/syjtimes" class="social-link" aria-label="Twitter" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://instagram.com/syjtimes" class="social-link" aria-label="Instagram" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/syjtimes" class="social-link" aria-label="LinkedIn" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://facebook.com/syjtimes" class="social-link" aria-label="Facebook" target="_blank">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-md-6 text-md-end">
-                        <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
-                        <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+                    
+                    <!-- Navigation Section -->
+                    <div class="col-lg-2 col-md-6 mb-4 footer-section">
+                        <h6>Navigate</h6>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="articles.html">Articles</a></li>
+                            <li><a href="magazines.html">Magazines</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Recent Articles Section -->
+                    <div class="col-lg-3 col-md-6 mb-4 footer-section">
+                        <h6>Recent Articles</h6>
+                        <div class="recent-articles">
+                            <template x-for="article in articles.slice(0, 4)" :key="article.id">
+                                <div class="recent-article-item mb-3" @click="openArticle(article)">
+                                    <div class="d-flex">
+                                        <div class="recent-article-image me-3">
+                                            <img :src="article.image" :alt="article.title" 
+                                                 style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
+                                        </div>
+                                        <div class="recent-article-content flex-grow-1">
+                                            <h6 class="mb-1" style="font-size: 0.85rem; line-height: 1.2;" x-text="article.title.length > 50 ? article.title.substring(0, 50) + '...' : article.title"></h6>
+                                            <small class="text-muted d-block" x-text="article.date"></small>
+                                            <span class="badge badge-sm mt-1" :class="article.badgeClass" style="font-size: 0.7rem;" x-text="article.category"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                    
+                    <!-- Get Involved Section -->
+                    <div class="col-lg-3 col-md-12 footer-section">
+                        <h6>Get Involved</h6>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-pen-alt"></i>
+                                <a href="mailto:societyofyoungjournalists@gmail.com?subject=Article Submission">Submit Articles</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:societyofyoungjournalists@gmail.com">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">&copy; 2024 SYJ Times. All rights reserved.</p>
+                    <div class="footer-policies">
+                        <a href="#comment-policy" onclick="scrollToCommentPolicy()">Comment Policy</a>
+                        <a href="about.html#advertising">Advertise</a>
+                        <a href="mailto:societyofyoungjournalists@gmail.com">Contact</a>
                     </div>
                 </div>
             </div>
@@ -266,10 +331,7 @@
     </footer>
 
     <!-- Article Modal -->
-    <div class="modal fade" 
-         id="articleModal" 
-         x-show="selectedArticle" 
-         x-transition.opacity>
+    <div class="modal fade" id="articleModal" x-show="selectedArticle" x-transition.opacity>
         <div class="modal-dialog modal-lg">
             <div class="modal-content" x-show="selectedArticle">
                 <div class="modal-header">
@@ -449,20 +511,17 @@
                 
                 openArticle(article) {
                     this.selectedArticle = article;
-                    // Show modal using Bootstrap
                     const modal = new bootstrap.Modal(document.getElementById('articleModal'));
                     modal.show();
                 },
                 
                 closeArticle() {
                     this.selectedArticle = null;
-                    // Hide modal using Bootstrap
                     const modal = bootstrap.Modal.getInstance(document.getElementById('articleModal'));
                     if (modal) modal.hide();
                 },
                 
                 loadMoreArticles() {
-                    // Simulate loading more articles
                     const newArticles = [
                         {
                             id: this.articles.length + 1,
@@ -478,13 +537,10 @@
                     ];
                     
                     this.articles.push(...newArticles);
-                    
-                    // Show success message
                     this.showToast('More articles loaded successfully!');
                 },
                 
                 showToast(message) {
-                    // Create and show a toast notification
                     const toastHtml = `
                         <div class="toast position-fixed top-0 end-0 m-3" role="alert" style="z-index: 9999;">
                             <div class="toast-header bg-success text-white">
@@ -505,11 +561,26 @@
                     const toast = new bootstrap.Toast(toastElement.firstElementChild);
                     toast.show();
                     
-                    // Remove after hiding
                     toastElement.firstElementChild.addEventListener('hidden.bs.toast', () => {
                         toastElement.remove();
                     });
                 }
+            }
+        }
+
+        // Add function to scroll to comment policy
+        function scrollToCommentPolicy() {
+            const commentSection = document.querySelector('.py-4.bg-light.border-top');
+            if (commentSection) {
+                commentSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
+            const commentSection = document.querySelector('.py-4.bg-light.border-top');
+            if (commentSection) {
+                commentSection.scrollIntoView({ behavior: 'smooth' });
             }
         }
     </script>

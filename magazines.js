@@ -140,3 +140,272 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Enhanced Magazine Flipbook Functionality
+class FlipbookManager {
+    constructor() {
+        this.magazines = {
+            'sonderful': {
+                title: 'Sonderful Writings',
+                subtitle: 'Literary Magazine • Issue #12',
+                pages: 32,
+                description: 'A collection of creative works showcasing emerging literary talents.',
+                previewPages: [
+                    'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300&h=400&fit=crop'
+                ]
+            },
+            'neuronuggets': {
+                title: 'NeuroNuggets',
+                subtitle: 'Science Blog • Latest Edition',
+                pages: 28,
+                description: 'Exploring the fascinating world of neuroscience through engaging articles.',
+                previewPages: [
+                    'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1516414447565-b14be0adf13e?w=300&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=300&h=400&fit=crop'
+                ]
+            },
+            'eunoia': {
+                title: 'Eunoia Magazine',
+                subtitle: 'Youth Culture • Volume 3',
+                pages: 40,
+                description: 'Celebrating youth culture and diverse perspectives worldwide.',
+                previewPages: [
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=400&fit=crop'
+                ]
+            },
+            'pavlovs': {
+                title: "Pavlov's Daughters",
+                subtitle: 'Feminist Zine • Issue #8',
+                pages: 24,
+                description: 'A powerful feminist zine featuring voices that challenge and inspire.',
+                previewPages: [
+                    'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=300&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&h=400&fit=crop'
+                ]
+            },
+            'syj-special': {
+                title: 'SYJ Times Special Edition',
+                subtitle: 'Year-End Edition • 2024',
+                pages: 48,
+                description: 'Our comprehensive year-end special featuring the best of 2024.',
+                previewPages: [
+                    'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=300&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop'
+                ]
+            },
+            'global-voices': {
+                title: 'Global Voices',
+                subtitle: 'International Stories • Issue #1',
+                pages: 36,
+                description: 'Stories from young journalists across continents and cultures.',
+                previewPages: [
+                    'https://images.unsplash.com/photo-1516414447565-b14be0adf13e?w=300&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300&h=400&fit=crop',
+                    'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&h=400&fit=crop'
+                ]
+            }
+        };
+        this.init();
+    }
+
+    init() {
+        // Initialize flipbook events
+        this.attachEventListeners();
+    }
+
+    attachEventListeners() {
+        // Make functions globally available
+        window.openFlipbook = (magazineId) => this.openFlipbook(magazineId);
+        window.closeFlipbook = () => this.closeFlipbook();
+        window.previewMagazine = (magazineId) => this.previewMagazine(magazineId);
+        window.closePreview = () => this.closePreview();
+    }
+
+    openFlipbook(magazineId) {
+        const magazine = this.magazines[magazineId];
+        if (!magazine) return;
+
+        const modal = document.getElementById('flipbook-modal');
+        const container = document.getElementById('flipbook-container');
+        
+        // Show loading state
+        container.innerHTML = `
+            <div class="flipbook-placeholder">
+                <i class="fas fa-book-open fa-3x text-primary mb-3"></i>
+                <p class="text-muted">Loading ${magazine.title}...</p>
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        `;
+
+        // Update modal title
+        modal.querySelector('.modal-title').textContent = magazine.title;
+        
+        // Show modal
+        const bsModal = new bootstrap.Modal(modal);
+        bsModal.show();
+
+        // Simulate loading and show flipbook
+        setTimeout(() => {
+            this.loadFlipbook(container, magazine);
+        }, 1500);
+    }
+
+    loadFlipbook(container, magazine) {
+        container.innerHTML = `
+            <div class="flipbook-reader h-100">
+                <div class="flipbook-header p-3 bg-dark text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">${magazine.title}</h6>
+                            <small class="text-muted">${magazine.subtitle}</small>
+                        </div>
+                        <div class="flipbook-controls">
+                            <button class="btn btn-sm btn-outline-light me-2" onclick="this.previousPage()">
+                                <i class="fas fa-chevron-left"></i> Prev
+                            </button>
+                            <span class="page-indicator">1 / ${magazine.pages}</span>
+                            <button class="btn btn-sm btn-outline-light ms-2" onclick="this.nextPage()">
+                                Next <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flipbook-content flex-grow-1 d-flex">
+                    <div class="page-container w-100 h-100 d-flex">
+                        <div class="page left-page" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                            <div class="page-content p-4">
+                                <h3 class="text-center mb-4">${magazine.title}</h3>
+                                <div class="text-center mb-4">
+                                    <img src="${magazine.previewPages[0]}" alt="Cover" style="max-width: 200px; border-radius: 8px;">
+                                </div>
+                                <p class="lead text-center">${magazine.description}</p>
+                                <div class="text-center">
+                                    <small class="text-muted">${magazine.subtitle}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page right-page" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+                            <div class="page-content p-4">
+                                <h4 class="mb-4">Table of Contents</h4>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><strong>Editorial</strong> <span class="float-end">3</span></li>
+                                    <li class="mb-2">Featured Articles <span class="float-end">5</span></li>
+                                    <li class="mb-2">Student Spotlight <span class="float-end">12</span></li>
+                                    <li class="mb-2">Creative Corner <span class="float-end">18</span></li>
+                                    <li class="mb-2">Reviews & Opinion <span class="float-end">24</span></li>
+                                    <li class="mb-2">Community News <span class="float-end">30</span></li>
+                                </ul>
+                                <div class="mt-4 p-3 bg-light rounded">
+                                    <small class="text-muted">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        This is a demo flipbook. Full interactive features will be available with the complete magazine viewer.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    previewMagazine(magazineId) {
+        const magazine = this.magazines[magazineId];
+        if (!magazine) return;
+
+        const modal = document.getElementById('preview-modal');
+        const container = document.getElementById('preview-container');
+        
+        modal.querySelector('.modal-title').textContent = `${magazine.title} - Preview`;
+        
+        container.innerHTML = `
+            <div class="preview-content">
+                <h4 class="mb-3">${magazine.title}</h4>
+                <p class="text-muted mb-4">${magazine.description}</p>
+                
+                <div class="preview-pages">
+                    ${magazine.previewPages.map((page, index) => `
+                        <div class="preview-page">
+                            <img src="${page}" alt="Page ${index + 1}" class="img-fluid rounded shadow">
+                            <small class="d-block text-center mt-2 text-muted">Page ${index + 1}</small>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <div class="preview-info">
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <div class="info-item">
+                                <i class="fas fa-file-alt fa-2x text-primary mb-2"></i>
+                                <h6>Pages</h6>
+                                <span class="text-muted">${magazine.pages}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-item">
+                                <i class="fas fa-calendar fa-2x text-success mb-2"></i>
+                                <h6>Published</h6>
+                                <span class="text-muted">December 2024</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-item">
+                                <i class="fas fa-download fa-2x text-info mb-2"></i>
+                                <h6>Format</h6>
+                                <span class="text-muted">Interactive PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary btn-lg" onclick="closePreview(); openFlipbook('${magazineId}')">
+                        <i class="fas fa-book-open me-2"></i>Read Full Magazine
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        const bsModal = new bootstrap.Modal(modal);
+        bsModal.show();
+    }
+
+    closeFlipbook() {
+        const modal = document.getElementById('flipbook-modal');
+        const bsModal = bootstrap.Modal.getInstance(modal);
+        if (bsModal) bsModal.hide();
+    }
+
+    closePreview() {
+        const modal = document.getElementById('preview-modal');
+        const bsModal = bootstrap.Modal.getInstance(modal);
+        if (bsModal) bsModal.hide();
+    }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize flipbook manager
+    new FlipbookManager();
+    
+    // Add enhanced hover effects for magazine cards
+    const magazineCards = document.querySelectorAll('.magazine-flipbook-card');
+    magazineCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+});
