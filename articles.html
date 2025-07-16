@@ -244,7 +244,6 @@
         <div class="container">
             <div class="footer-content">
                 <div class="row">
-                    <!-- Brand Section -->
                     <div class="col-lg-4 mb-4 footer-section">
                         <div class="footer-brand">
                             <i class="fas fa-newspaper"></i>
@@ -254,22 +253,21 @@
                             Discover compelling stories, insightful analysis, and diverse perspectives from young journalists worldwide. Join our community of writers and readers shaping the future of journalism.
                         </p>
                         <div class="social-links">
-                            <a href="https://twitter.com/syjtimes" class="social-link" aria-label="Twitter" target="_blank">
+                            <a href="#" class="social-link" aria-label="Twitter">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a href="https://instagram.com/syjtimes" class="social-link" aria-label="Instagram" target="_blank">
+                            <a href="#" class="social-link" aria-label="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="https://linkedin.com/company/syjtimes" class="social-link" aria-label="LinkedIn" target="_blank">
+                            <a href="#" class="social-link" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="https://facebook.com/syjtimes" class="social-link" aria-label="Facebook" target="_blank">
+                            <a href="#" class="social-link" aria-label="Facebook">
                                 <i class="fab fa-facebook"></i>
                             </a>
                         </div>
                     </div>
                     
-                    <!-- Navigation Section -->
                     <div class="col-lg-2 col-md-6 mb-4 footer-section">
                         <h6>Navigate</h6>
                         <ul class="footer-links">
@@ -280,46 +278,32 @@
                         </ul>
                     </div>
                     
-                    <!-- Recent Articles Section -->
                     <div class="col-lg-3 col-md-6 mb-4 footer-section">
-                        <h6>Recent Articles</h6>
-                        <div class="recent-articles">
-                            <template x-for="article in articles.slice(0, 4)" :key="article.id">
-                                <div class="recent-article-item mb-3" @click="openArticle(article)">
-                                    <div class="d-flex">
-                                        <div class="recent-article-image me-3">
-                                            <img :src="article.image" :alt="article.title" 
-                                                 style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
-                                        </div>
-                                        <div class="recent-article-content flex-grow-1">
-                                            <h6 class="mb-1" style="font-size: 0.85rem; line-height: 1.2;" x-text="article.title.length > 50 ? article.title.substring(0, 50) + '...' : article.title"></h6>
-                                            <small class="text-muted d-block" x-text="article.date"></small>
-                                            <span class="badge badge-sm mt-1" :class="article.badgeClass" style="font-size: 0.7rem;" x-text="article.category"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </template>
-                        </div>
+                        <h6>Get Involved</h6>
+                        <ul class="footer-links">
+                            <li><a href="mailto:societyofyoungjournalists@gmail.com?subject=Article Submission">Submit Articles</a></li>
+                            <li><a href="mailto:societyofyoungjournalists@gmail.com?subject=Staff Application">Join Our Team</a></li>
+                            <li><a href="mailto:societyofyoungjournalists@gmail.com?subject=Newsletter">Subscribe</a></li>
+                            <li><a href="mailto:societyofyoungjournalists@gmail.com">Contact Us</a></li>
+                        </ul>
                     </div>
                     
-                    <!-- Get Involved Section -->
                     <div class="col-lg-3 col-md-12 footer-section">
-                        <h6>Get Involved</h6>
+                        <h6>Contact</h6>
                         <div class="contact-info">
                             <div class="contact-item">
-                                <i class="fas fa-pen-alt"></i>
-                                <a href="mailto:societyofyoungjournalists@gmail.com?subject=Article Submission">Submit Articles</a>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:societyofyoungjournalists@gmail.com">societyofyoungjournalists@gmail.com</a>
                             </div>
                             <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <a href="mailto:societyofyoungjournalists@gmail.com">Contact Us</a>
+                                <i class="fas fa-globe"></i>
+                                <span>www.syjtimes.com</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <p class="footer-copyright">&copy; 2024 SYJ Times. All rights reserved.</p>

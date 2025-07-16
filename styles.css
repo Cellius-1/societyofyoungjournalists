@@ -386,69 +386,248 @@ small {
     font-weight: 500;
 }
 
-/* Footer typography */
+/* Footer typography updates */
 .footer {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     color: white;
     font-family: var(--font-primary);
-    padding: 4rem 0 2rem;
+    padding: 3rem 0 1rem;
     border-top: 3px solid var(--primary-color);
     position: relative;
     overflow: hidden;
 }
 
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(30, 64, 175, 0.05) 100%);
+    pointer-events: none;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-brand i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
 .footer-brand h5 {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin: 0;
-    background: linear-gradient(135deg, #ffffff 0%, #e5e7eb 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: white;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
 }
 
 .footer-section h6 {
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: white;
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-section h6::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
 }
 
 .footer-links a {
     color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
     font-weight: 400;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-family: var(--font-primary);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     position: relative;
     display: inline-block;
     padding: 0.25rem 0;
 }
 
+.footer-links a:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.footer-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-primary);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.social-link:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.contact-info {
+    margin-top: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem 0;
+}
+
+.contact-item i {
+    font-size: 1rem;
+    color: var(--primary-color);
+    min-width: 20px;
+}
+
+.contact-item span,
+.contact-item a {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
+    font-family: var(--font-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    font-family: var(--font-primary);
+    margin: 0;
+}
+
+.footer-policies {
+    display: flex;
+    gap: 1.5rem;
+}
+
 .footer-policies a {
     color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-family: var(--font-heading);
     transition: all 0.3s ease;
     position: relative;
 }
 
-.footer-copyright {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
-    font-family: var(--font-primary);
-    margin: 0;
+.footer-policies a:hover {
+    color: var(--primary-color);
 }
 
-/* Staff section typography */
+.footer-policies a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.footer-policies a:hover::after {
+    width: 100%;
+}
+
+/* Staff section improvements */
+.staff-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.staff-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(30, 64, 175, 0.1) 100%);
+    pointer-events: none;
+}
+
+.staff-section .container {
+    position: relative;
+    z-index: 1;
+}
+
 .staff-section h2,
 .staff-section h3,
 .staff-section h5 {
@@ -461,40 +640,413 @@ small {
     color: white !important;
 }
 
-/* Contact info */
-.contact-info .btn {
+/* Magazine Flipbook Card Styles */
+.magazine-flipbook-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.magazine-flipbook-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.magazine-cover-container {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+}
+
+.magazine-cover {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.magazine-cover:hover {
+    transform: scale(1.05);
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.magazine-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.magazine-cover:hover .magazine-overlay {
+    opacity: 1;
+}
+
+.magazine-info {
+    padding: 2rem;
+    width: 100%;
+}
+
+.magazine-info h4 {
     font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.magazine-info p {
+    font-family: var(--font-primary);
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.magazine-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.magazine-actions .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.magazine-actions .btn:hover {
+    transform: translateY(-2px);
+}
+
+.magazine-spine {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        var(--primary-color) 0%,
+        var(--secondary-color) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spine-text {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    font-size: 0.7rem;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: var(--font-heading);
+}
+
+.magazine-details {
+    padding: 1.5rem;
+}
+
+.magazine-details h5 {
+    font-family: var(--font-heading);
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.magazine-details p {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.magazine-details .btn {
+    font-family: var(--font-heading);
+    font-weight: 500;
     font-size: 0.85rem;
     padding: 0.4rem 0.8rem;
     border-radius: 6px;
     transition: all 0.3s ease;
-    text-decoration: none;
 }
 
-.contact-item span,
-.contact-item a {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.95rem;
-    font-family: var(--font-primary);
-    text-decoration: none;
-    transition: color 0.3s ease;
+.magazine-details .btn:hover {
+    transform: translateY(-1px);
 }
 
-/* Ensure all headings use Playfair Display */
-.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
-    font-family: var(--font-heading) !important;
+/* Modal Styles for Flipbook and Preview */
+.modal-xl .modal-dialog {
+    max-width: 90%;
 }
 
-.lead {
-    font-family: var(--font-primary);
+.flipbook-reader {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-/* Footer description */
-.footer-description {
-    font-size: 1rem;
-    line-height: 1.7;
-    opacity: 0.85;
-    margin-bottom: 2rem;
-    font-family: var(--font-primary);
-    animation: fadeInUp 0.8s ease-out 0.2s both;
+.flipbook-header {
+    background: var(--dark-color);
+    color: white;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.flipbook-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.page-indicator {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    min-width: 60px;
+    text-align: center;
+}
+
+.flipbook-content {
+    flex: 1;
+    overflow: hidden;
+}
+
+.page-container {
+    display: flex;
+    height: 100%;
+}
+
+.page {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.left-page {
+    border-right: 1px solid #e5e7eb;
+}
+
+.page-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.preview-pages {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.preview-page {
+    text-align: center;
+}
+
+.preview-page img {
+    max-width: 120px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.preview-page img:hover {
+    transform: scale(1.05);
+}
+
+.preview-info {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.info-item {
+    margin-bottom: 1rem;
+}
+
+.info-item h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.info-item span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.flipbook-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    color: #666;
+}
+
+.flipbook-placeholder i {
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Partnership section improvements */
+.partnership-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.partnership-section .card {
+    border: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.partnership-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.partnership-section .card-body {
+    padding: 2rem;
+}
+
+.partnership-section i {
+    margin-bottom: 1rem;
+}
+
+.partnership-section h5 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.partnership-section ul {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.partnership-section li {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.partnership-section .btn {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.partnership-section .btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .magazine-flipbook-card {
+        margin-bottom: 2rem;
+    }
+    
+    .magazine-cover-container {
+        height: 250px;
+    }
+    
+    .magazine-info {
+        padding: 1.5rem;
+    }
+    
+    .magazine-info h4 {
+        font-size: 1.3rem;
+    }
+    
+    .magazine-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .magazine-actions .btn {
+        width: 100%;
+    }
+    
+    .preview-pages {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .preview-page img {
+        max-width: 150px;
+    }
+    
+    .flipbook-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .page-container {
+        flex-direction: column;
+    }
+    
+    .left-page {
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+    }
+}
+
+@media (max-width: 576px) {
+    .magazine-details {
+        padding: 1rem;
+    }
+    
+    .magazine-info {
+        padding: 1rem;
+    }
+    
+    .magazine-info h4 {
+        font-size: 1.1rem;
+    }
+    
+    .preview-content {
+        padding: 1rem;
+    }
+    
+    .modal-xl .modal-dialog {
+        max-width: 95%;
+        margin: 0.5rem;
+    }
 }
