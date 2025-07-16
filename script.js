@@ -500,12 +500,106 @@ class MagazineManager {
     }
 }
 
+// Category URL Parameter Handler
+class CategoryHandler {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.handleURLParams();
+        this.bindCategoryLinks();
+        this.updateNavbarOnPageLoad();
+    }
+
+    updateNavbarOnPageLoad() {
+        const currentPath = window.location.pathname;
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        
+        // Update active state for current page
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        if (currentPath.includes('articles.html')) {
+            if (category === 'technology') {
+                document.querySelector('a[href*="category=technology"]')?.classList.add('active');
+            } else if (category === 'politics') {
+                document.querySelector('a[href*="category=politics"]')?.classList.add('active');
+            } else {
+                document.querySelector('a[href="articles.html"]')?.classList.add('active');
+            }
+        } else if (currentPath.includes('magazines.html')) {
+            document.querySelector('a[href="magazines.html"]')?.classList.add('active');
+        } else if (currentPath.includes('about.html')) {
+            document.querySelector('a[href="about.html"]')?.classList.add('active');
+        } else {
+            document.querySelector('a[href="index.html"]')?.classList.add('active');
+        }
+    }
+
+    handleURLParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        
+        if (category && window.location.pathname.includes('articles.html')) {
+            // Set active category if on articles page
+            setTimeout(() => {
+                // Check if Alpine.js app is available
+                if (window.Alpine && window.Alpine.store) {
+                    // Use Alpine.js to set the category
+                    const articlesApp = document.querySelector('[x-data="articlesApp()"]');
+                    if (articlesApp && articlesApp._x_dataStack) {
+                        articlesApp._x_dataStack[0].activeCategory = category;
+                    }
+                }
+                this.highlightActiveCategory(category);
+            }, 100);
+        }
+    }
+
+    bindCategoryLinks() {
+        const categoryLinks = document.querySelectorAll('a[href*="?category="], a[href*="articles.html"]');
+        
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const url = new URL(link.href, window.location.origin);
+                const category = url.searchParams.get('category');
+                
+                if (category) {
+                    localStorage.setItem('selectedCategory', category);
+                } else if (url.pathname.includes('articles.html')) {
+                    localStorage.setItem('selectedCategory', 'all');
+                }
+            });
+        });
+    }
+
+    highlightActiveCategory(category) {
+        // Remove active from all nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        // Add active to appropriate link
+        if (category === 'technology') {
+            document.querySelector('a[href*="category=technology"]')?.classList.add('active');
+        } else if (category === 'politics') {
+            document.querySelector('a[href*="category=politics"]')?.classList.add('active');
+        } else {
+            document.querySelector('a[href="articles.html"]')?.classList.add('active');
+        }
+    }
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new Navigation();
     new FormHandler();
     new ContentManager();
     new MagazineManager();
+    new CategoryHandler();
     
     // Add fade-in animation to page elements
     const elements = document.querySelectorAll('.card, .btn, .badge');

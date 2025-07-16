@@ -15,17 +15,17 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="magazines-page">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
-                <i class="fas fa-newspaper me-2"></i>SYJ Times
+            <a class="navbar-brand fw-bold text-dark" href="index.html">
+                SYJ Times
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -35,21 +35,24 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link text-dark fw-medium" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link text-dark fw-medium" href="articles.html">Breaking News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="articles.html">Articles</a>
+                        <a class="nav-link text-dark fw-medium" href="articles.html?category=technology">Technology</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="magazines.html">Magazines</a>
+                        <a class="nav-link text-dark fw-medium" href="articles.html?category=politics">Politics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark fw-medium active" href="magazines.html">Magazines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark fw-medium" href="about.html">About Us</a>
                     </li>
                 </ul>
-                <button class="btn btn-primary ms-3">
-                    <i class="fas fa-bell me-2"></i>Subscribe
-                </button>
             </div>
         </div>
     </nav>
@@ -466,6 +469,34 @@
                                 <i class="fas fa-envelope"></i>
                                 <a href="mailto:societyofyoungjournalists@gmail.com">Contact Us</a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">&copy; 2024 SYJ Times. All rights reserved.</p>
+                    <div class="footer-policies">
+                        <a href="about.html#policies">Policies</a>
+                        <a href="mailto:societyofyoungjournalists@gmail.com">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <script src="magazines.js"></script>
+</body>
+</html>
                         </div>
                     </div>
                 </div>

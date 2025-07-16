@@ -15,7 +15,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -25,10 +25,10 @@
 </head>
 <body class="articles-page" x-data="articlesApp()">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
-                <i class="fas fa-newspaper me-2"></i>SYJ Times
+            <a class="navbar-brand fw-bold text-dark" href="index.html">
+                SYJ Times
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -38,21 +38,24 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link text-dark fw-medium" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link text-dark fw-medium active" href="articles.html">Breaking News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="articles.html">Articles</a>
+                        <a class="nav-link text-dark fw-medium" href="articles.html?category=technology">Technology</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="magazines.html">Magazines</a>
+                        <a class="nav-link text-dark fw-medium" href="articles.html?category=politics">Politics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark fw-medium" href="magazines.html">Magazines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark fw-medium" href="about.html">About Us</a>
                     </li>
                 </ul>
-                <button class="btn btn-primary ms-3">
-                    <i class="fas fa-bell me-2"></i>Subscribe
-                </button>
             </div>
         </div>
     </nav>
@@ -371,6 +374,19 @@
                 activeCategory: 'all',
                 selectedArticle: null,
                 
+                // Initialize with URL parameter handling
+                init() {
+                    // Check for category parameter in URL
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const categoryParam = urlParams.get('category');
+                    
+                    if (categoryParam) {
+                        this.activeCategory = categoryParam;
+                        // Update navbar active state
+                        this.updateNavbarActiveState(categoryParam);
+                    }
+                },
+                
                 categories: [
                     { id: 'all', name: '<i class="fas fa-list me-2"></i>All Articles', displayName: 'All Categories' },
                     { id: 'politics', name: '<i class="fas fa-balance-scale me-2"></i>Politics', displayName: 'Politics' },
@@ -381,6 +397,22 @@
                     { id: 'environment', name: '<i class="fas fa-leaf me-2"></i>Environment', displayName: 'Environment' }
                 ],
                 
+                updateNavbarActiveState(category) {
+                    // Remove active class from all nav links
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    // Add active class to appropriate nav link
+                    if (category === 'technology') {
+                        document.querySelector('a[href*="category=technology"]')?.classList.add('active');
+                    } else if (category === 'politics') {
+                        document.querySelector('a[href*="category=politics"]')?.classList.add('active');
+                    } else {
+                        document.querySelector('a[href="articles.html"]')?.classList.add('active');
+                    }
+                },
+
                 articles: [
                     {
                         id: 1,
@@ -570,14 +602,6 @@
 
         // Add function to scroll to comment policy
         function scrollToCommentPolicy() {
-            const commentSection = document.querySelector('.py-4.bg-light.border-top');
-            if (commentSection) {
-                commentSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    </script>
-</body>
-</html>
             const commentSection = document.querySelector('.py-4.bg-light.border-top');
             if (commentSection) {
                 commentSection.scrollIntoView({ behavior: 'smooth' });
