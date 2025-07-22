@@ -977,76 +977,44 @@ small {
     transform: translateY(-2px);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .magazine-flipbook-card {
-        margin-bottom: 2rem;
-    }
-    
-    .magazine-cover-container {
-        height: 250px;
-    }
-    
-    .magazine-info {
-        padding: 1.5rem;
-    }
-    
-    .magazine-info h4 {
-        font-size: 1.3rem;
-    }
-    
-    .magazine-actions {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .magazine-actions .btn {
-        width: 100%;
-    }
-    
-    .preview-pages {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .preview-page img {
-        max-width: 150px;
-    }
-    
-    .flipbook-controls {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .page-container {
-        flex-direction: column;
-    }
-    
-    .left-page {
-        border-right: none;
-        border-bottom: 1px solid #e5e7eb;
-    }
+/* Article page styles */
+.article-page {
+    padding-top: 76px;
 }
 
-@media (max-width: 576px) {
-    .magazine-details {
-        padding: 1rem;
-    }
-    
-    .magazine-info {
-        padding: 1rem;
-    }
-    
-    .magazine-info h4 {
-        font-size: 1.1rem;
-    }
-    
-    .preview-content {
-        padding: 1rem;
-    }
-    
-    .modal-xl .modal-dialog {
-        max-width: 95%;
-        margin: 0.5rem;
-    }
+.article-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+    font-family: var(--font-heading);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+    font-family: var(--font-primary);
+}
+
+.article-content .lead {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #6c757d;
+    margin-bottom: 2rem;
+}
+
+.article-content img {
+    transition: transform 0.3s ease;
+}
+
+.article-content img:hover {
+    transform: scale(1.02);
+}
+
+.sticky-top {
+    position: sticky;
 }
